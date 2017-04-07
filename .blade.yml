@@ -1,0 +1,28 @@
+load_paths:
+  - lib/assets/javascripts
+  - lib/assets/stylesheets
+  - vendor/assets/javascripts
+  - vendor/assets/stylesheets
+  - test/javascripts/
+  - turbolinks-source: lib/assets/javascripts
+  - jquery-rails: vendor/assets/javascripts
+  - lodash-rails: vendor/assets/javascripts
+  - tao_on_rails:
+    - lib/assets/javascripts
+    - lib/assets/stylesheets
+    - vendor/assets/javascripts
+    - vendor/assets/stylesheets
+
+logical_paths:
+  - tao.js
+  - tao.css
+  - tao/ui.css
+  - tao/ui.js
+
+build:
+  logical_paths:
+    - tao.js
+    - tao.css
+    - tao/ui.css
+    - tao/ui.js
+  path: dist
