@@ -1,5 +1,40 @@
 
-// fonts
-$font-size: 14px !default;
-$font-size-small: 12px !default;
-$font-size-big: 16px !default;
+// base
+
+$white-color: #ffffff !default;
+$grey-color: #4a4a4a !default;
+$black-color: #000000 !default;
+$red-color: #FF7755 !default;
+$orange-color: #FFAA00 !default;
+$green-color: #55BB33 !default;
+$blue-color: #2DB7F5 !default;
+
+$light-grey-color: #666666 !default;
+$lighter-grey-color: #999999 !default;
+$lightest-grey-color: #cccccc !default;
+
+$grey-bg-color: #efefef !default;
+$light-grey-bg-color: #f3f3f3 !default;
+$lighter-grey-bg-color: #f6f6f6 !default;
+
+$text-color: $grey-color !default;
+$link-color: #4499EE !default;
+$link-hover-color: #3377cc !default;
+$border-color: #dfdfdf !default;
+
+$border-width: 1px !default;
+$border-radius: 0.25rem !default;
+$border-radius-s: 0.125rem !default;
+$border-radius-l: 0.3rem !default;
+
+$font-size: 1rem !default;
+$font-size-s: 0.875rem !default;
+$font-size-l: 1.125rem !default;
+$font-size-xs: 0.75rem !default;
+
+$font-size-h1: 2rem !default;
+$font-size-h2: 1.5rem !default;
+$font-size-h3: 1.25rem !default;
+$font-size-h4: 1rem !default;
+$font-size-h5: 0.875rem !default;
+$font-size-h6: 0.875rem !default;

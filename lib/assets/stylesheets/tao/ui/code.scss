@@ -1,0 +1,53 @@
+@import 'tao/ui/globals';
+
+// Inline and block code styles
+code,
+kbd,
+pre,
+samp {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+code {
+  padding: 0.2em 0.4em;
+  font-size: 85%;
+  background-color: $light-grey-bg-color;
+  border-radius: $border-radius;
+
+  a > & {
+    padding: 0;
+    color: inherit;
+    background-color: inherit;
+  }
+}
+
+kbd {
+  padding: 0.2em 0.4em;
+  font-size: 85%;
+  background-color: $light-grey-bg-color;
+  border-radius: $border-radius;
+
+  kbd {
+    padding: 0;
+    font-size: 100%;
+  }
+}
+
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: 85%;
+  background-color: $light-grey-bg-color;
+  overflow: auto;
+  border-radius: $border-radius;
+
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}

@@ -3,6 +3,11 @@
 html {
   box-sizing: border-box;
   height: 100%;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 
   *, *:before, *:after {
     box-sizing: inherit;
@@ -10,5 +15,157 @@ html {
 }
 
 body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   font-size: $font-size;
+  font-family: "Helvetica Neue", "PingFang SC", "Microsoft Yahei", 微软雅黑, STXihei, 华文细黑, sans-serif;
+  line-height: 1.5;
+  color: $text-color;
+  fill: $text-color;
+  background-color: $white-color;
+}
+
+small,
+.small {
+  font-size: $font-size-s;
+  font-weight: normal;
+}
+
+.x-small {
+  font-size: $font-size-xs;
+  font-weight: normal;
+}
+
+big,
+.big,
+.large {
+  font-size: $font-size-l;
+}
+
+mark,
+.mark {
+  padding: 0.2em;
+  background-color: yellow;
+}
+
+a {
+  color: $link-color;
+  fill: $link-color;
+  text-decoration: none;
+  background-color: transparent; // Remove the gray background on active links in IE 10.
+  -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
+
+  &:hover {
+    color: $link-hover-color;
+  }
+
+  &.warn {
+    color: $red-color;
+    fill: $red-color;
+
+    &:hover {
+      color: lighten($red-color, 10%);
+      fill: lighten($red-color, 10%);
+    }
+  }
+
+  &.disabled {
+    color: $lightest-grey-color;
+    fill: $lightest-grey-color;
+    cursor: not-allowed;;
+  }
+}
+
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  fill: inherit;
+
+  &:hover {
+    color: inherit;
+    fill: inherit;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  color: $black-color;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h1, .h1 { font-size: $font-size-h1; }
+h2, .h2 { font-size: $font-size-h2; }
+h3, .h3 { font-size: $font-size-h3; }
+h4, .h4 { font-size: $font-size-h4; }
+h5, .h5 { font-size: $font-size-h5; }
+h6, .h6 { font-size: $font-size-h6; }
+
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid $border-color;
+}
+
+p {
+  line-height: 2.0;
+  margin: 0 0 1rem 0;
+}
+
+ul, ol {
+  margin: 0 0 1rem 0;
+  padding: 0 0 0 30px;
+
+  li {
+    line-height: 2.0
+  }
+
+  ul, ol {
+    margin-bottom: 0;
+  }
+}
+
+blockquote {
+  margin: 0 0 1rem 0;
+  padding: 0.5rem 1rem;
+  color: $light-grey-color;
+  border-left: 0.25rem solid $border-color;
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+// Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
+//
+// In particular, unlike most other browsers, IE11+Edge on Windows 10 on touch devices and IE Mobile 10-11
+// DON'T remove the click delay when `<meta name="viewport" content="width=device-width">` is present.
+// However, they DO support removing the click delay via `touch-action: manipulation`.
+// See:
+// * https://v4-alpha.getbootstrap.com/content/reboot/#click-delay-optimization-for-touch
+// * http://caniuse.com/#feat=css-touch-action
+// * https://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay
+
+a,
+area,
+button,
+[role="button"],
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
 }

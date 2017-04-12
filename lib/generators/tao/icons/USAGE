@@ -5,4 +5,4 @@ Example:
     `rails generate tao:icons basic`
 
     Create coffee file:
-        lib/assets/javascripts/tao_ui/icons/basic.coffee
+        lib/assets/javascripts/tao/ui/icons/basic.coffee
