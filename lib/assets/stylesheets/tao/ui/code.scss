@@ -11,7 +11,7 @@ samp {
 code {
   padding: 0.2em 0.4em;
   font-size: 85%;
-  background-color: $light-grey-bg-color;
+  background-color: $lighter-grey-bg-color;
   border-radius: $border-radius;
 
   a > & {
@@ -24,7 +24,7 @@ code {
 kbd {
   padding: 0.2em 0.4em;
   font-size: 85%;
-  background-color: $light-grey-bg-color;
+  background-color: $lighter-grey-bg-color;
   border-radius: $border-radius;
 
   kbd {
@@ -36,12 +36,13 @@ kbd {
 pre {
   display: block;
   margin-top: 0;
-  margin-bottom: 1rem;
-  padding: 1rem;
+  margin-bottom: 1em;
+  padding: 1.5em;
   font-size: 85%;
-  background-color: $light-grey-bg-color;
+  background-color: $lighter-grey-bg-color;
   overflow: auto;
   border-radius: $border-radius;
+  white-space: pre-wrap;
 
   code {
     padding: 0;

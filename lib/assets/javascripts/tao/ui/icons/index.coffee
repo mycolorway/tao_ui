@@ -1,6 +1,5 @@
 #= require_self
 #= require ./basic
-#= require tao/ui/icons/app
 
 Tao.icons = ''
 

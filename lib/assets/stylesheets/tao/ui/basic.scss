@@ -93,8 +93,8 @@ a:not([href]):not([tabindex]) {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
   line-height: 1.1;
   color: $black-color;
 
@@ -112,20 +112,20 @@ h6, .h6 { font-size: $font-size-h6; }
 
 
 hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
   border: 0;
   border-top: 1px solid $border-color;
 }
 
 p {
   line-height: 2.0;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1em 0;
 }
 
 ul, ol {
-  margin: 0 0 1rem 0;
-  padding: 0 0 0 30px;
+  margin: 0 0 1em 0;
+  padding: 0 0 0 2em;
 
   li {
     line-height: 2.0
@@ -137,10 +137,10 @@ ul, ol {
 }
 
 blockquote {
-  margin: 0 0 1rem 0;
-  padding: 0.5rem 1rem;
+  margin: 0 0 1em 0;
+  padding: 0.5em 1em;
   color: $light-grey-color;
-  border-left: 0.25rem solid $border-color;
+  border-left: 0.25em solid $border-color;
 
   *:last-child {
     margin-bottom: 0;

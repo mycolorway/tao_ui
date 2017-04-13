@@ -1,5 +1,6 @@
 require 'tao_on_rails'
 require 'momentjs-rails'
+require 'tao_ui/components'
 
 module TaoUi
   class Engine < ::Rails::Engine

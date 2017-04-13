@@ -1,0 +1,39 @@
+
+@mixin button-colors($colors) {
+  $normal-colors: map-get($colors, 'normal');
+  background: map-get($normal-colors, 'bg');
+  border: 1px solid map-get($normal-colors, 'border');
+  color: map-get($normal-colors, 'text');
+  fill: map-get($normal-colors, 'text');
+
+  &:focus, &.focus {
+    box-shadow: 0px 0px 0 2px rgba(map-get($normal-colors, 'border'), 0.5);
+  }
+
+  &:hover {
+    $hover-colors: map-get($colors, 'hover');
+    background: map-get($hover-colors, 'bg');
+    border: 1px solid map-get($hover-colors, 'border');
+    color: map-get($hover-colors, 'text');
+    fill: map-get($hover-colors, 'text');
+  }
+
+  &:active {
+    $active-colors: map-get($colors, 'active');
+    background: map-get($active-colors, 'bg');
+    border: 1px solid map-get($active-colors, 'border');
+    color: map-get($active-colors, 'text');
+    fill: map-get($active-colors, 'text');
+    box-shadow: 0px 0px 0 2px rgba(map-get($active-colors, 'border'), 0.5);
+  }
+
+  &.disabled,
+  &[disabled] {
+    $disable-colors: map-get($colors, 'disable');
+    background: map-get($disable-colors, 'bg');
+    border: 1px solid map-get($disable-colors, 'border');
+    color: map-get($disable-colors, 'text');
+    fill: map-get($disable-colors, 'text');
+    box-shadow: none;
+  }
+}

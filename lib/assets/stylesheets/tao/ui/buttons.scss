@@ -1,0 +1,59 @@
+@import 'tao/ui/globals';
+
+button,
+input[type='submit'],
+input[type='button'],
+input[type='reset'],
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: $button-padding;
+  font-size: $button-font-size;
+  line-height: $button-line-height;
+  border-radius: $border-radius-s;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  user-select: none;
+  transition: background 200ms, color 200ms, fill 200ms, border-color 200ms, box-shadow 200ms;
+  @include button-colors($default-button-colors);
+
+  &:focus, &.focus {
+    outline: none;
+  }
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    margin: 0 0.4em 0 0;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+.button-warning {
+  @include button-colors($warning-button-colors);
+}
+
+.button-primary {
+  @include button-colors($primary-button-colors);
+}
+
+.button-primary-warning {
+  @include button-colors($primary-warning-button-colors);
+}
+
+.button-small {
+  padding: $small-button-padding;
+  font-size: $small-button-font-size;
+  line-height: $small-button-line-height;
+}

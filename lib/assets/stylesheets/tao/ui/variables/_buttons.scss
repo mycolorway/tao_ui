@@ -1,0 +1,84 @@
+$button-font-size: 1rem;
+$button-line-height: 1.25;
+$button-padding: 0.5em 1em;
+
+$small-button-font-size: $font-size-s;
+$small-button-line-height: 1.3;
+$small-button-padding: 0.25em 0.5em;
+
+$default-button-colors: (
+  normal: (
+    bg: $white-color,
+    text: $ui-color,
+    border: #e3e3e3
+  ),
+  hover: (
+    bg: $lighter-grey-color,
+    text: $white-color,
+    border: $lighter-grey-color
+  ),
+  active: (
+    bg: $grey-color,
+    text: $white-color,
+    border: $grey-color
+  ),
+  disable: (
+    bg: $white-color,
+    text: $lightest-grey-color,
+    border: #f1f1f1
+  )
+);
+
+$primary-button-colors: (
+  normal: (
+    bg: $ui-color,
+    text: $white-color,
+    border: $ui-color
+  ),
+  hover: (
+    bg: lighten($ui-color, 10%),
+    text: $white-color,
+    border: lighten($ui-color, 10%)
+  ),
+  active: (
+    bg: darken($ui-color, 10%),
+    text: $white-color,
+    border: darken($ui-color, 10%)
+  ),
+  disable: (
+    bg: $lighter-grey-bg-color,
+    text: $lightest-grey-color,
+    border: #e6e6e6
+  )
+);
+
+$warning-button-colors: map-merge($default-button-colors, (
+  normal: (
+    bg: $white-color,
+    text: lighten($red-color, 10%),
+    border: #e3e3e3
+  ),
+  hover: (
+    bg: lighten($red-color, 10%),
+    text: $white-color,
+    border: lighten($red-color, 10%)
+  )
+));
+
+$primary-warning-button-colors: map-merge($primary-button-colors, (
+  normal: (
+    bg: $red-color,
+    border: $red-color,
+    text: $white-color
+  ),
+  hover: (
+    bg: lighten($red-color, 10%),
+    text: $white-color,
+    border: lighten($red-color, 10%)
+  ),
+  active: (
+    bg: darken($red-color, 10%),
+    text: $white-color,
+    border: darken($red-color, 10%)
+  )
+));

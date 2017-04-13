@@ -1,15 +1,15 @@
 require 'tao_on_rails/components/base'
 
-module TaoOnRails
+module TaoUi
   module Components
-    class IconComponent < Base
+    class IconComponent < TaoOnRails::Components::Base
 
       attr_reader :name
 
       def initialize view, name, options = {}
         super view, options
 
-        @name = name
+        @name = name.to_s.dasherize
 
         if @options[:class].present?
           @options[:class] += " icon icon-#{name}"
