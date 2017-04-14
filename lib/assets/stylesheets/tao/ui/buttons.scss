@@ -7,6 +7,7 @@ input[type='reset'],
 .button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: $button-padding;
   font-size: $button-font-size;
   line-height: $button-line-height;
@@ -20,18 +21,20 @@ input[type='reset'],
   transition: background 200ms, color 200ms, fill 200ms, border-color 200ms, box-shadow 200ms;
   @include button-colors($default-button-colors);
 
-  &:focus, &.focus {
-    outline: none;
-  }
-
   .icon {
     width: 1em;
     height: 1em;
     margin: 0 0.4em 0 0;
   }
 
-  &:hover {
-    text-decoration: none;
+  &:focus, &.focus {
+    outline: none;
+  }
+
+  @if not $mobile {
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   &.disabled,
@@ -56,4 +59,9 @@ input[type='reset'],
   padding: $small-button-padding;
   font-size: $small-button-font-size;
   line-height: $small-button-line-height;
+}
+
+.button-block {
+  display: flex;
+  width: 100%;
 }

@@ -20,7 +20,7 @@ body {
   padding: 0;
   font-size: $font-size;
   font-family: "Helvetica Neue", "PingFang SC", "Microsoft Yahei", 微软雅黑, STXihei, 华文细黑, sans-serif;
-  line-height: 1.5;
+  line-height: $default-line-height;
   color: $text-color;
   fill: $text-color;
   background-color: $white-color;
@@ -56,17 +56,21 @@ a {
   background-color: transparent; // Remove the gray background on active links in IE 10.
   -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
 
-  &:hover {
-    color: $link-hover-color;
+  @if not $mobile {
+    &:hover {
+      color: $link-hover-color;
+    }
   }
 
   &.warn {
     color: $red-color;
     fill: $red-color;
 
-    &:hover {
-      color: lighten($red-color, 10%);
-      fill: lighten($red-color, 10%);
+    @if not $mobile {
+      &:hover {
+        color: lighten($red-color, 10%);
+        fill: lighten($red-color, 10%);
+      }
     }
   }
 
@@ -81,13 +85,15 @@ a:not([href]):not([tabindex]) {
   color: inherit;
   fill: inherit;
 
-  &:hover {
-    color: inherit;
-    fill: inherit;
-  }
+  @if not $mobile {
+    &:hover {
+      color: inherit;
+      fill: inherit;
+    }
 
-  &:focus {
-    outline: 0;
+    &:focus {
+      outline: 0;
+    }
   }
 }
 

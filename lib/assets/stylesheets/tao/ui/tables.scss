@@ -40,7 +40,9 @@ table {
     text-align: center;
   }
 
-  tbody tr:hover {
-    background-color: $lighter-grey-bg-color;
+  @if not $mobile {
+    tbody tr:hover {
+      background-color: $lighter-grey-bg-color;
+    }
   }
 }

@@ -13,6 +13,7 @@ code {
   font-size: 85%;
   background-color: $lighter-grey-bg-color;
   border-radius: $border-radius;
+  word-wrap: break-word;
 
   a > & {
     padding: 0;
@@ -50,5 +51,6 @@ pre {
     color: inherit;
     background-color: transparent;
     border-radius: 0;
+    word-wrap: normal;
   }
 }
