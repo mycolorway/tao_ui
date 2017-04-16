@@ -41,27 +41,27 @@ input[type='reset'],
   &[disabled] {
     cursor: not-allowed;
   }
-}
 
-.button-warning {
-  @include button-colors($warning-button-colors);
-}
+  &.button-warning {
+    @include button-colors($warning-button-colors);
+  }
 
-.button-primary {
-  @include button-colors($primary-button-colors);
-}
+  &.button-primary {
+    @include button-colors($primary-button-colors);
+  }
 
-.button-primary-warning {
-  @include button-colors($primary-warning-button-colors);
-}
+  &.button-primary-warning {
+    @include button-colors($primary-warning-button-colors);
+  }
 
-.button-small {
-  padding: $small-button-padding;
-  font-size: $small-button-font-size;
-  line-height: $small-button-line-height;
-}
+  &.button-small {
+    padding: $small-button-padding;
+    font-size: $small-button-font-size;
+    line-height: $small-button-line-height;
+  }
 
-.button-block {
-  display: flex;
-  width: 100%;
+  &.button-block {
+    display: flex;
+    width: 100%;
+  }
 }
