@@ -12,5 +12,3 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
-
-gem 'tao_on_rails', path: '/Users/farthinker/Sites/tao_on_rails'

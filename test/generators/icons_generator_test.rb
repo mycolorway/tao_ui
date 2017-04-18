@@ -21,7 +21,7 @@ class Tao::Generators::IconsGeneratorTest < Rails::Generators::TestCase
     assert_no_file 'lib/assets/javascripts/tao/ui/icons/basic.coffee'
     run_generator %w(basic)
     assert_file 'lib/assets/javascripts/tao/ui/icons/basic.coffee' do |content|
-      assert_match(/Tao.icons.html \+=/, content)
+      assert_match(/Tao.ui.icons \+=/, content)
       assert_match(/<symbol id="icon-zhiren"/, content)
     end
   end
