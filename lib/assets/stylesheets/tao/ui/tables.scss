@@ -40,7 +40,7 @@ table.table {
 
   @if not $mobile {
     tbody tr:hover {
-      background-color: $lighter-grey-bg-color;
+      background-color: $table-row-hover-color;
     }
   }
 }
