@@ -1,9 +1,7 @@
 @import 'tao/ui/globals';
 
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   padding: $button-padding;
   font-size: $button-font-size;
   line-height: $button-line-height;
@@ -18,7 +16,8 @@
   @include button-colors($default-button-colors);
 
   .icon {
-    margin: 0 0.4em 0 0;
+    vertical-align: text-top;
+    margin-right: 0.4em;
   }
 
   &:focus, &.focus {
@@ -55,7 +54,7 @@
   }
 
   &.button-block {
-    display: flex;
+    display: block;
     width: 100%;
   }
 }
