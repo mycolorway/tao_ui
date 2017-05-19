@@ -12,9 +12,9 @@ module TaoUi
         @name = name.to_s.dasherize
 
         if @options[:class].present?
-          @options[:class] += " icon icon-#{name}"
+          @options[:class] += " icon icon-#{@name}"
         else
-          @options[:class] = "icon icon-#{name}"
+          @options[:class] = "icon icon-#{@name}"
         end
       end
 
