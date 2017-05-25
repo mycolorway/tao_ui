@@ -1,0 +1,64 @@
+@import 'tao/ui/globals';
+
+body.slide-box-active {
+  height: 100%;
+  overflow: hidden;
+}
+
+tao-slide-box {
+  display: none;
+  position: fixed;
+  background: $white-color;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  opacity: 0;
+  z-index: $z-index-float;
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+
+  & > .link-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0.5rem;
+    fill: $lighter-grey-color;
+
+    &:hover {
+      fill: $grey-color;
+    }
+  }
+
+  &[direction='rtl'] {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(50%);
+  }
+
+  &[direction='ltr'] {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  &[direction='ttb'] {
+    left: 0;
+    top: 0;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  &[direction='btt'] {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateY(50%);
+  }
+
+  &[active] {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}

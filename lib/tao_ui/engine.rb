@@ -3,6 +3,8 @@ require 'tao_ui/components'
 
 module TaoUi
   class Engine < ::Rails::Engine
-    isolate_namespace TaoUi
+
+    paths['app/views'] << 'lib/views'
+
   end
 end

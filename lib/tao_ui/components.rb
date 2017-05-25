@@ -1,6 +1,2 @@
 require 'tao_ui/components/icon_component'
-
-module TaoUi
-  module Components
-  end
-end
+require 'tao_ui/components/slide_box_component'

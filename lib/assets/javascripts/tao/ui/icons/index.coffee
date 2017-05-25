@@ -1,5 +1,5 @@
 #= require_self
-#= require ./basic
+#= require_tree .
 
 Tao.ui =
 

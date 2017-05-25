@@ -1,0 +1,12 @@
+@import 'tao/ui/globals';
+@import './base';
+
+tao-slide-box {
+  & > .link-close {
+    right: 0.5rem;
+
+    &:hover {
+      fill: $grey-color;
+    }
+  }
+}

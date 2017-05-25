@@ -1,0 +1,5 @@
+zh-CN:
+  tao_ui:
+    components:
+      slide_box:
+        close: 关闭

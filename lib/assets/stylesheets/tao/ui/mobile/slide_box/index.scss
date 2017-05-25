@@ -1,0 +1,12 @@
+@import 'tao/ui/mobile/globals';
+@import 'tao/ui/slide_box/base';
+
+tao-slide-box {
+  & > .link-close {
+    left: 0.5rem;
+
+    &:active {
+      fill: $grey-color;
+    }
+  }
+}
