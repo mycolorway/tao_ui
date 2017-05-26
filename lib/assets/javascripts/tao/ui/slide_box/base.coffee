@@ -4,7 +4,7 @@ class Tao.SlideBox.Base extends TaoComponent
 
   @attribute 'active', type: 'boolean', observe: true
 
-  @attribute 'clickAutoHide', type: 'boolean'
+  @attribute 'autoHide', type: 'boolean'
 
   @attribute 'triggerSelector', 'triggerTraversal'
 
@@ -20,6 +20,7 @@ class Tao.SlideBox.Base extends TaoComponent
 
     @_initSize()
     @_bind()
+    @_activeChanged() if @active
 
   _disconnected: ->
     @triggerEl?.off ".tao-slide-box-#{@taoId}"
@@ -51,9 +52,9 @@ class Tao.SlideBox.Base extends TaoComponent
     null
 
   _activeChanged: ->
-    @_unbindAutoHideEvent() if @clickAutoHide
+    @_unbindAutoHideEvent() if @autoHide
     if @active
-      @_bindAutoHideEvent() if @clickAutoHide
+      @_bindAutoHideEvent() if @autoHide
       $('body').addClass('slide-box-active')
     else
       $('body').removeClass('slide-box-active')

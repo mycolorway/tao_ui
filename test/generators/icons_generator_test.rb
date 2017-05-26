@@ -18,10 +18,10 @@ class Tao::Generators::IconsGeneratorTest < Rails::Generators::TestCase
   end
 
   test 'generate icons file' do
-    assert_no_file 'lib/assets/javascripts/tao/ui/icons/basic.coffee'
-    run_generator %w(basic)
-    assert_file 'lib/assets/javascripts/tao/ui/icons/basic.coffee' do |content|
-      assert_match(/Tao.ui.icons \+=/, content)
+    assert_no_file 'lib/assets/javascripts/tao/ui/icons/base.coffee'
+    run_generator %w(base)
+    assert_file 'lib/assets/javascripts/tao/ui/icons/base.coffee' do |content|
+      assert_match(/Tao._icons \+=/, content)
       assert_match(/<symbol id="icon-zhiren"/, content)
     end
   end

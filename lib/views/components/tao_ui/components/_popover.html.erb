@@ -1,0 +1,10 @@
+<%= content_tag component.tag_name, component.html_options do %>
+  <div class="tao-popover-content">
+    <%= yield %>
+  </div>
+  <div class="tao-popover-arrow">
+    <i class="arrow arrow-shadow"></i>
+    <i class="arrow arrow-border"></i>
+    <i class="arrow arrow-basic"></i>
+  </div>
+<% end %>

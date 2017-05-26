@@ -1,9 +1,9 @@
 #= require_self
 #= require_tree .
 
-Tao.ui =
+_.extend Tao,
 
-  icons: ''
+  _icons: ''
 
   iconTag: (name, attributes={}) ->
     $("<svg><use xlink:href=\"#icon-#{name}\"/></svg>")
@@ -15,6 +15,6 @@ Tao.Application.initializer 'icons', (app) ->
     return if $('#tao-icons').length > 0
     document.body.insertAdjacentHTML 'afterbegin', """
     <svg id="tao-icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none">
-      #{Tao.ui.icons}
+      #{Tao._icons}
     </svg>
     """
