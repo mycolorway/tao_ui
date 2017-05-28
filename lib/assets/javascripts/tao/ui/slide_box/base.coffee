@@ -4,7 +4,7 @@ class Tao.SlideBox.Base extends TaoComponent
 
   @attribute 'active', type: 'boolean', observe: true
 
-  @attribute 'autoHide', type: 'boolean'
+  @attribute 'withCloseButton', 'autoHide', type: 'boolean'
 
   @attribute 'triggerSelector', 'triggerTraversal'
 
@@ -30,12 +30,12 @@ class Tao.SlideBox.Base extends TaoComponent
   _initSize: ->
     sizeProperty = if @direction in ['btt', 'ttb'] then 'height' else 'width'
     @jq[sizeProperty] if (size = parseFloat(@size)) < 0
-       $(window)[sizeProperty]() - size
+       $(window)[sizeProperty]() + size
     else
       @size
 
   _bind: ->
-    @on 'click', '.link-close', =>
+    @on 'click', '> .link-close', =>
       @active = false
 
     if @triggerEl && @triggerEl.length > 0
