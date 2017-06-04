@@ -7,15 +7,8 @@ module TaoUi
       attr_reader :name
 
       def initialize view, name, options = {}
-        super view, options
-
         @name = name.to_s.dasherize
-
-        if @options[:class].present?
-          @options[:class] += " icon icon-#{@name}"
-        else
-          @options[:class] = "icon icon-#{@name}"
-        end
+        super view, options
       end
 
       def render
@@ -24,6 +17,12 @@ module TaoUi
 
       def self.component_name
         :icon
+      end
+
+      private
+
+      def default_options
+        {class: ['icon', "icon-#{@name}"]}
       end
 
     end
