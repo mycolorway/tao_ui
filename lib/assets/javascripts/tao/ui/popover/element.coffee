@@ -51,8 +51,10 @@ class Tao.Popover.Element extends TaoComponent
     if @active
       @refresh()
       @_enableAutoHide() if @autoHide
+      @trigger 'show'
     else
       @_disableAutoHide() if @autoHide
+      @trigger 'hide'
 
   _enableAutoHide: ->
     $(document).on "mousedown.tao-popover-#{@taoId}", (e) =>
