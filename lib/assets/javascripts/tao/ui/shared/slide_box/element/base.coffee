@@ -1,4 +1,4 @@
-class Tao.SlideBox.Base extends TaoComponent
+class Tao.SlideBox.ElementBase extends TaoComponent
 
   @tag 'tao-slide-box'
 

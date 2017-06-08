@@ -1,5 +1,6 @@
+#= require tao/ui/shared/slide_box/element/base
 
-class Tao.SlideBox.Element extends Tao.SlideBox.Base
+class Tao.SlideBox.Element extends Tao.SlideBox.ElementBase
 
   _autoHideEvent: 'mousedown'
 

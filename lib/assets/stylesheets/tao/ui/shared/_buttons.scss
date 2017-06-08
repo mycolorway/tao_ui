@@ -1,0 +1,67 @@
+.button {
+  display: inline-block;
+  padding: $button-padding;
+  font-size: $button-font-size;
+  line-height: $button-line-height;
+  border-radius: $border-radius-s;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  user-select: none;
+  transition: background 200ms, color 200ms, fill 200ms, border-color 200ms;
+  @include button-colors($default-button-colors);
+
+  .icon {
+    vertical-align: text-top;
+  }
+
+  &.text-with-icon {
+    padding-left: 1.125em;
+  }
+
+  &:focus, &.focus {
+    outline: none;
+  }
+
+  @if not $mobile {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &.button-warning {
+    @include button-colors($warning-button-colors);
+  }
+
+  &.button-primary {
+    @include button-colors($primary-button-colors);
+  }
+
+  &.button-small {
+    padding: $small-button-padding;
+    font-size: $small-button-font-size;
+    line-height: $small-button-line-height;
+
+    &.text-with-icon {
+      padding-left: 0.75em;
+    }
+  }
+
+  &.button-icon {
+    min-width: 2.5em;
+    padding: $button-padding-v;
+    @include button-colors($icon-button-colors);
+  }
+
+  &.button-block {
+    display: block;
+    width: 100%;
+  }
+}

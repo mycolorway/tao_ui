@@ -1,6 +1,6 @@
 #= require_self
-#= require ../ujs
-#= require ../icons
+#= require tao/ui/shared/ujs
+#= require tao/ui/icons
 #= require ./slide_box
 
 window.Tao ||= {}

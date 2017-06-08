@@ -1,4 +1,3 @@
-@import 'tao/ui/globals';
 
 body.slide-box-active {
   height: 100%;
@@ -9,9 +8,9 @@ tao-slide-box {
   display: none;
   position: fixed;
   background: $white-color;
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
   opacity: 0;
   z-index: $z-index-float;
+  border: 0px solid $light-border-color;
   transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
 
   & > .link-close {
@@ -38,6 +37,8 @@ tao-slide-box {
     right: 0;
     bottom: 0;
     transform: translateX(50%);
+    border-left-width: 1px;
+    box-shadow: -2px 0 5px 0 rgba(0,0,0,0.05);
   }
 
   &[direction='ltr'] {
@@ -45,6 +46,8 @@ tao-slide-box {
     left: 0;
     bottom: 0;
     transform: translateX(-50%);
+    border-right-width: 1px;
+    box-shadow: 2px 0 5px 0 rgba(0,0,0,0.05);
   }
 
   &[direction='ttb'] {
@@ -52,6 +55,8 @@ tao-slide-box {
     top: 0;
     right: 0;
     transform: translateY(-50%);
+    border-bottom-width: 1px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
   }
 
   &[direction='btt'] {
@@ -59,6 +64,8 @@ tao-slide-box {
     right: 0;
     bottom: 0;
     transform: translateY(50%);
+    border-top-width: 1px;
+    box-shadow: 0 -2px 5px 0 rgba(0,0,0,0.05);
   }
 
   &[active] {

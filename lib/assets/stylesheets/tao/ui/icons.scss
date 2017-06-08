@@ -1,18 +1,2 @@
 @import 'tao/ui/globals';
-
-@keyframes spin {
-  from { transform:rotate(0deg); }
-  to { transform:rotate(360deg); }
-}
-
-.icon {
-  display: inline-block;
-  width: 1.25em;
-  height: 1.25em;
-  vertical-align: middle;
-  fill: inherit;
-
-  &.spin {
-    animation: spin 1s infinite linear;
-  }
-}
+@import 'tao/ui/shared/icons';

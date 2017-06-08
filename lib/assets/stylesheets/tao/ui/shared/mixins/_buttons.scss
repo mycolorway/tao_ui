@@ -6,12 +6,11 @@
   color: map-get($normal-colors, 'text');
   fill: map-get($normal-colors, 'text');
 
-
   @if not $mobile {
     &:focus, &.focus {
-      box-shadow: 0px 0px 0 2px rgba(map-get($normal-colors, 'border'), 0.5);
+      box-shadow: 0px 0px 0 2px rgba($border-color, 0.5);
     }
-    
+
     &:hover {
       $hover-colors: map-get($colors, 'hover');
       background: map-get($hover-colors, 'bg');
@@ -27,7 +26,6 @@
     border: 1px solid map-get($active-colors, 'border');
     color: map-get($active-colors, 'text');
     fill: map-get($active-colors, 'text');
-    box-shadow: 0px 0px 0 2px rgba(map-get($active-colors, 'border'), 0.5);
   }
 
   &.disabled,

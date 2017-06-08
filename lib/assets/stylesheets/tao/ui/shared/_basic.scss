@@ -1,0 +1,152 @@
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: $font-size;
+  font-family: "Helvetica Neue", "PingFang SC", "Microsoft Yahei", 微软雅黑, STXihei, 华文细黑, sans-serif;
+  line-height: $default-line-height;
+  color: $text-color;
+  fill: $text-color;
+  background-color: $white-color;
+}
+
+small,
+.small {
+  font-size: $font-size-s;
+  font-weight: normal;
+}
+
+.x-small {
+  font-size: $font-size-xs;
+  font-weight: normal;
+}
+
+big,
+.big,
+.large {
+  font-size: $font-size-l;
+}
+
+mark,
+.mark {
+  padding: 0.2em;
+  background-color: yellow;
+}
+
+a {
+  color: $link-color;
+  fill: $link-color;
+  text-decoration: none;
+  background-color: transparent; // Remove the gray background on active links in IE 10.
+  -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
+
+  @if not $mobile {
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+
+  &.warn {
+    color: $red-color;
+    fill: $red-color;
+
+    @if not $mobile {
+      &:hover {
+        color: lighten($red-color, 10%);
+        fill: lighten($red-color, 10%);
+      }
+    }
+  }
+
+  &.disabled {
+    color: $lightest-grey-color;
+    fill: $lightest-grey-color;
+    cursor: not-allowed;;
+  }
+}
+
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  fill: inherit;
+
+  @if not $mobile {
+    &:hover {
+      color: inherit;
+      fill: inherit;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  line-height: $default-line-height;
+  color: $black-color;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h1, .h1 { font-size: $font-size-h1; }
+h2, .h2 { font-size: $font-size-h2; }
+h3, .h3 { font-size: $font-size-h3; }
+h4, .h4 { font-size: $font-size-h4; }
+h5, .h5 { font-size: $font-size-h5; }
+h6, .h6 { font-size: $font-size-h6; }
+
+
+hr {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 0;
+  border-top: 1px solid $border-color;
+}
+
+p {
+  line-height: 2.0;
+  margin: 0 0 1em 0;
+}
+
+ul, ol {
+  margin: 0 0 1em 0;
+  padding: 0 0 0 2em;
+
+  li {
+    line-height: 2.0
+  }
+
+  ul, ol {
+    margin-bottom: 0;
+  }
+}
+
+blockquote {
+  margin: 0 0 1em 0;
+  padding: 0.5em 1em;
+  color: $light-grey-color;
+  border-left: 0.25em solid $border-color;
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
