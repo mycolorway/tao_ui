@@ -35,10 +35,4 @@ table.table {
   td.align-center {
     text-align: center;
   }
-
-  @if not $mobile {
-    tbody tr:hover {
-      background-color: $table-row-hover-color;
-    }
-  }
 }

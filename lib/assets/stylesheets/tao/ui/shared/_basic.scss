@@ -54,22 +54,9 @@ a {
   background-color: transparent; // Remove the gray background on active links in IE 10.
   -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
 
-  @if not $mobile {
-    &:hover {
-      color: $link-hover-color;
-    }
-  }
-
   &.warn {
     color: $red-color;
     fill: $red-color;
-
-    @if not $mobile {
-      &:hover {
-        color: lighten($red-color, 10%);
-        fill: lighten($red-color, 10%);
-      }
-    }
   }
 
   &.disabled {
@@ -82,17 +69,6 @@ a {
 a:not([href]):not([tabindex]) {
   color: inherit;
   fill: inherit;
-
-  @if not $mobile {
-    &:hover {
-      color: inherit;
-      fill: inherit;
-    }
-
-    &:focus {
-      outline: 0;
-    }
-  }
 }
 
 h1, h2, h3, h4, h5, h6,

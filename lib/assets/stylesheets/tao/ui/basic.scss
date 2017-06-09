@@ -1,2 +1,26 @@
 @import 'tao/ui/globals';
 @import 'tao/ui/shared/basic';
+
+a {
+  &:hover {
+    color: $link-hover-color;
+  }
+
+  &.warn {
+    &:hover {
+      color: lighten($red-color, 10%);
+      fill: lighten($red-color, 10%);
+    }
+  }
+}
+
+a:not([href]):not([tabindex]) {
+  &:hover {
+    color: inherit;
+    fill: inherit;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}

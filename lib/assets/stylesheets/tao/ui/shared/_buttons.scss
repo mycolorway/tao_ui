@@ -19,16 +19,14 @@
 
   &.text-with-icon {
     padding-left: 1.125em;
+
+    .icon {
+      margin-right: 0.5em
+    }
   }
 
   &:focus, &.focus {
     outline: none;
-  }
-
-  @if not $mobile {
-    &:hover {
-      text-decoration: none;
-    }
   }
 
   &.disabled,

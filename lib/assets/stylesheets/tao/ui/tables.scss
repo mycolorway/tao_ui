@@ -1,2 +1,8 @@
 @import 'tao/ui/globals';
 @import 'tao/ui/shared/tables';
+
+table.table {
+  tbody tr:hover {
+    background-color: $table-row-hover-color;
+  }
+}
