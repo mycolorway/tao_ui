@@ -1,8 +1,10 @@
 # hack ujs for adding loading icon on disabled buttons/links
 
 prependLoadingIcon = (element) ->
-  $(element).addClass('text-with-icon')
-    .prepend Tao.iconTag('loading', class: 'spin')
+  $element = $ element
+  if $element.is('button') && $element.data('loading')
+    $element.addClass('text-with-icon')
+      .prepend Tao.iconTag('loading', class: 'spin')
 
 # jquery-ujs
 if $.rails?

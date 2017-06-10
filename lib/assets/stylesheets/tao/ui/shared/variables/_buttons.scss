@@ -1,3 +1,9 @@
+$button-color: $green-color !default;
+$button-hover-color: #66cc33 !default;
+$button-active-color: #22AA11 !default;
+$button-warn-color: $red-color !default;
+$button-warn-active-color: #EE6633 !default;
+
 $button-font-size: $font-size !default;
 $button-line-height: 1.5 !default;
 $button-padding-v: 0.4375em !default;
@@ -13,18 +19,18 @@ $small-button-padding: $small-button-padding-v $small-button-padding-h !default;
 $default-button-colors: (
   normal: (
     bg: $white-color,
-    text: $ui-color,
+    text: $button-color,
     border: $border-color
   ),
   hover: (
     bg: $white-color,
-    text: #66cc33,
-    border: #66cc33
+    text: $button-hover-color,
+    border: $button-hover-color
   ),
   active: (
     bg: $white-color,
-    text: #22AA11,
-    border: #22AA11
+    text: $button-active-color,
+    border: $button-active-color
   ),
   disable: (
     bg: $white-color,
@@ -35,19 +41,19 @@ $default-button-colors: (
 
 $primary-button-colors: (
   normal: (
-    bg: $ui-color,
+    bg: $button-color,
     text: $white-color,
-    border: $ui-color
+    border: $button-color
   ),
   hover: (
-    bg: #66cc33,
+    bg: $button-hover-color,
     text: $white-color,
-    border: #66cc33
+    border: $button-hover-color
   ),
   active: (
-    bg: #22AA11,
+    bg: $button-active-color,
     text: $white-color,
-    border: #22AA11
+    border: $button-active-color
   ),
   disable: (
     bg: $border-color,
@@ -59,18 +65,18 @@ $primary-button-colors: (
 $warning-button-colors: map-merge($default-button-colors, (
   normal: (
     bg: $white-color,
-    text: $red-color,
-    border: $red-color
+    text: $button-warn-color,
+    border: $button-warn-color
   ),
   hover: (
-    bg: $red-color,
+    bg: $button-warn-color,
     text: $white-color,
-    border: $red-color
+    border: $button-warn-color
   ),
   active: (
-    bg: #EE6633,
+    bg: $button-warn-active-color,
     text: $white-color,
-    border: #EE6633
+    border: $button-warn-active-color
   )
 )) !default;
 
