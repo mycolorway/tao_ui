@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version     = ">= 2.3.1"
 
-  s.files = Dir["{lib,vendor}/**/*", "LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{lib,vendor,config}/**/*", "LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "tao_on_rails", "~> 0.9.0"
 
