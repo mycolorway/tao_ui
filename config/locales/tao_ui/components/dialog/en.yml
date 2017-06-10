@@ -1,0 +1,5 @@
+zh-CN:
+  tao_ui:
+    components:
+      dialog:
+        close: Close

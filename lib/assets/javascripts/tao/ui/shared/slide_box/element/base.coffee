@@ -4,7 +4,7 @@ class Tao.SlideBox.ElementBase extends TaoComponent
 
   @attribute 'active', type: 'boolean', observe: true
 
-  @attribute 'withCloseButton', 'autoHide', type: 'boolean'
+  @attribute 'withCloseButton', 'autoHide', 'autoDestroy', type: 'boolean'
 
   @attribute 'triggerSelector', 'triggerTraversal'
 
@@ -48,7 +48,10 @@ class Tao.SlideBox.ElementBase extends TaoComponent
       @_reflow()
     else
       @one 'transitionend', =>
-        @jq.hide()
+        if @autoDestroy
+          @jq.remove()
+        else
+          @jq.hide()
     null
 
   _activeChanged: ->

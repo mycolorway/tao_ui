@@ -1,0 +1,10 @@
+<%= content_tag component.tag_name, component.html_options do %>
+  <div class="tao-dialog-wrapper">
+    <div class="tao-dialog-content">
+      <%= yield %>
+    </div>
+    <%= link_to 'javascripts:;', class: 'link-close', title: component.t(:close) do %>
+      <%= tao_icon :close %>
+    <% end %>
+  </div>
+<% end %>

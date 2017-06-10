@@ -1,0 +1,78 @@
+@import 'tao/ui/globals';
+
+body.tao-dialog-active {
+  overflow: hidden;
+}
+
+.tao-dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z-index-dialog;
+  display: none;
+  overflow: hidden;
+
+  &[modal] {
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 200ms ease-in-out;
+  }
+
+  &[modal][active] {
+    background-color: rgba(0, 0, 0, 0.55);
+  }
+
+  &[active] .tao-dialog-wrapper {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  .tao-dialog-wrapper {
+    position: relative;
+    width: 37.5rem;
+    min-height: 1em;
+    margin: 0 auto;
+    border-radius: 0 0 $border-radius-s $border-radius-s;
+    background-color: $white-color;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    transform: translate(0, -30%);
+    transition: transform .3s ease-in-out, opacity .3s ease-in-out, width .2s ease-in-out;
+    opacity: 0;
+    padding: 1rem 2rem;
+
+    .tao-dialog-content {
+      overflow-y: auto;
+    }
+  }
+
+  &[size='l'] .tao-dialog-wrapper {
+    width: 53.75rem;
+  }
+
+  &[size='xl'] .tao-dialog-wrapper {
+    width: 71.25rem;
+  }
+
+  .tao-dialog-wrapper > .link-close {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0.625rem;
+    right: 0.625rem;
+    text-decoration: none;
+    fill: $lighter-grey-color;
+
+    &:hover {
+      fill: $grey-color;
+    }
+  }
+
+  &[with-close-button] .tao-dialog-wrapper > .link-close {
+    display: flex;
+  }
+
+}

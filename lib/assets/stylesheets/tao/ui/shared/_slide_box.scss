@@ -1,6 +1,5 @@
 
 body.slide-box-active {
-  height: 100%;
   overflow: hidden;
 }
 
@@ -12,6 +11,7 @@ tao-slide-box {
   z-index: $z-index-float;
   border: 0px solid $light-border-color;
   transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  overflow: hidden;
 
   & > .link-close {
     display: none;
@@ -30,6 +30,11 @@ tao-slide-box {
 
   &[with-close-button] > .link-close {
     display: flex;
+  }
+
+  .slide-box-content {
+    max-height: 100%;
+    overflow: auto;
   }
 
   &[direction='rtl'] {

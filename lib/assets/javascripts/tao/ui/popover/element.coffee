@@ -19,6 +19,8 @@ class Tao.Popover.Element extends TaoComponent
 
   @attribute 'autoHide', type: 'boolean'
 
+  @attribute 'autoDestroy', type: 'boolean'
+
   _connected: ->
     @_initTarget()
     @_initTrigger()
@@ -55,6 +57,7 @@ class Tao.Popover.Element extends TaoComponent
     else
       @_disableAutoHide() if @autoHide
       @trigger 'hide'
+      @jq.remove() if @autoDestroy
 
   _enableAutoHide: ->
     $(document).on "mousedown.tao-popover-#{@taoId}", (e) =>
