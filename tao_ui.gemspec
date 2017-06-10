@@ -14,10 +14,14 @@ Gem::Specification.new do |s|
   s.description = "UI library based on tao"
   s.license     = "MIT"
 
+  s.required_ruby_version     = ">= 2.3.1"
+
   s.files = Dir["{lib,vendor}/**/*", "LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "tao_on_rails", "~> 0.9.0"
 
-
-  s.add_development_dependency "sqlite3", '~> 1.3'
+  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "nokogiri", '~> 1.8.0'
+  s.add_development_dependency "blade", "~> 0.7.0"
+  s.add_development_dependency "blade-sauce_labs_plugin", "~> 0.7.0"
 end
