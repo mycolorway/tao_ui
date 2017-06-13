@@ -1,3 +1,4 @@
+require 'autoprefixer-rails'
 require 'tao_on_rails'
 require 'tao_ui/components'
 

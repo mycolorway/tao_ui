@@ -4,13 +4,13 @@ $button-active-color: #22AA11 !default;
 $button-warn-color: $red-color !default;
 $button-warn-active-color: #EE6633 !default;
 
-$button-font-size: $font-size !default;
+$button-font-size: 1rem !default;
 $button-line-height: 1.5 !default;
 $button-padding-v: 0.4375em !default;
 $button-padding-h: 1.25em !default;
 $button-padding: $button-padding-v $button-padding-h !default;
 
-$small-button-font-size: $font-size-xs !default;
+$small-button-font-size: 0.75rem !default;
 $small-button-line-height: 1.5 !default;
 $small-button-padding-v: 0.25em !default;
 $small-button-padding-h: 0.875em !default;
