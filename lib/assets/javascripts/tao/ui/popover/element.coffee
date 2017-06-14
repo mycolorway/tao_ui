@@ -53,10 +53,10 @@ class Tao.Popover.Element extends TaoComponent
     if @active
       @refresh()
       @_enableAutoHide() if @autoHide
-      @trigger 'popover:show'
+      @trigger 'tao:show'
     else
       @_disableAutoHide() if @autoHide
-      @trigger 'popover:hide'
+      @trigger 'tao:hide'
       @jq.remove() if @autoDestroy
 
   _enableAutoHide: ->
@@ -99,9 +99,9 @@ class Tao.Popover.Element extends TaoComponent
       @active = false
 
   remove: ->
-    @trigger 'popover:beforeRemove'
+    @trigger 'tao:beforeRemove'
     @jq.remove()
-    @trigger 'popover:remove'
+    @trigger 'tao:remove'
 
   _disconnected: ->
     @triggerEl.off '.tao-popover'
