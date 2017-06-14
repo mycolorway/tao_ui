@@ -45,13 +45,14 @@ class Tao.SlideBox.ElementBase extends TaoComponent
   _beforeActiveChanged: (active) ->
     if active
       @jq.show()
-      @_reflow()
+      @reflow()
     else
-      @one 'transitionend', =>
-        if @autoDestroy
-          @jq.remove()
-        else
-          @jq.hide()
+      if @jq.is(':visible')
+        @one 'transitionend', =>
+          if @autoDestroy
+            @remove()
+          else
+            @jq.hide()
     null
 
   _activeChanged: ->
@@ -59,10 +60,10 @@ class Tao.SlideBox.ElementBase extends TaoComponent
     if @active
       @_bindAutoHideEvent() if @autoHide
       $('body').addClass('slide-box-active')
-      @trigger 'show'
+      @trigger 'slideBox:show'
     else
       $('body').removeClass('slide-box-active')
-      @trigger 'hide'
+      @trigger 'slideBox:hide'
 
   _autoHideEvent: ''
 
@@ -74,3 +75,15 @@ class Tao.SlideBox.ElementBase extends TaoComponent
       return if e.target == @ || $.contains(@, e.target) || @triggerEl?.is(e.target)
       @active = false
       @_unbindAutoHideEvent()
+
+  remove: ->
+    @trigger 'slideBox:beforeRemove'
+    @jq.remove()
+    @trigger 'slideBox:remove'
+
+  beforeCache: ->
+    if @autoDestroy
+      @remove()
+    else
+      @jq.hide()
+      active = false
