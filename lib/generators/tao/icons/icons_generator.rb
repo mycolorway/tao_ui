@@ -3,6 +3,8 @@ module Tao
     class IconsGenerator < Rails::Generators::NamedBase
       source_root File.expand_path('../templates', __FILE__)
 
+      class_option :paths, type: :array, default: ['app/assets/icons', 'lib/assets/icons'], desc: 'Find svg files in specified paths.'
+
       attr_reader :icons_html
 
       def create_icons_file
@@ -13,10 +15,9 @@ module Tao
       private
 
       def svg_files
-        Dir.glob([
-          File.expand_path('app/assets/icons/*.svg', destination_root),
-          File.expand_path('lib/assets/icons/*.svg', destination_root)
-        ]).uniq
+        Dir.glob(options[:paths].map { |p|
+          File.expand_path(File.join(p, '*.svg'), destination_root)
+        }).uniq
       end
 
       def symbol(path)
