@@ -80,6 +80,7 @@ class Tao.SlideBox.ElementBase extends TaoComponent
     @trigger 'tao:beforeRemove'
     @jq.remove()
     @trigger 'tao:remove'
+    @
 
   beforeCache: ->
     if @autoDestroy

@@ -41,7 +41,6 @@ pre {
   background-color: $grey-bg-color;
   overflow: auto;
   border-radius: $border-radius;
-  white-space: pre-wrap;
 
   code {
     padding: 0;
@@ -50,5 +49,6 @@ pre {
     background-color: transparent;
     border-radius: 0;
     word-wrap: normal;
+    white-space: inherit;
   }
 }
