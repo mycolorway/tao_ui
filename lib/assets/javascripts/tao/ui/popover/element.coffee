@@ -13,7 +13,11 @@ class Tao.Popover.Element extends TaoComponent
 
   @attribute 'triggerAction', default: 'click'
 
-  @attribute 'boundarySelector', 'direction', 'arrowAlign', 'arrowVerticalAlign'
+  @attribute 'boundarySelector', 'direction', 'size'
+
+  @attribute 'arrowAlign', default: 'center'
+
+  @attribute 'arrowVerticalAlign', default: 'middle'
 
   @attribute 'offset', type: 'number', default: 0
 
@@ -24,6 +28,7 @@ class Tao.Popover.Element extends TaoComponent
   _connected: ->
     @_initTarget()
     @_initTrigger()
+    @_initSize()
     @_activeChanged() if @active
 
   _initTarget: ->
@@ -49,6 +54,9 @@ class Tao.Popover.Element extends TaoComponent
       .on 'mouseleave.tao-popover', (e) =>
         @active = false
 
+  _initSize: ->
+    @jq.width(@size) if @size
+
   _activeChanged: ->
     if @active
       @refresh()
@@ -65,6 +73,7 @@ class Tao.Popover.Element extends TaoComponent
       target = $ e.target
       return if target.is(@target) or @jq.has(target).length or target.is(@)
       @active = false
+      null
 
   _disableAutoHide: ->
     $(document).off "mousedown.tao-popover-#{@taoId}"
@@ -88,9 +97,11 @@ class Tao.Popover.Element extends TaoComponent
     @jq.css
       top: @position.top
       left: @position.left
+    @
 
   toggleActive: ->
     @active = !@active
+    @
 
   beforeCache: ->
     if @autoDestroy
@@ -102,6 +113,7 @@ class Tao.Popover.Element extends TaoComponent
     @trigger 'tao:beforeRemove'
     @jq.remove()
     @trigger 'tao:remove'
+    @
 
   _disconnected: ->
     @triggerEl.off '.tao-popover'

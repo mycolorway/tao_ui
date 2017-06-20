@@ -30,8 +30,7 @@ class Tao.Dialog.Element extends TaoComponent
     @off()
 
   _initSize: ->
-    size = parseFloat @size
-    if _.isNumber size
+    if _.isNumber(size = parseFloat @size)
       @jq.find('.tao-dialog-wrapper').width size
 
   _bind: ->
@@ -71,11 +70,13 @@ class Tao.Dialog.Element extends TaoComponent
   setContent: (content) ->
     @jq.find('.tao-dialog-content').empty()
       .append content
+    @
 
   remove: ->
     @trigger 'tao:beforeRemove'
     @jq.remove()
     @trigger 'tao:remove'
+    @
 
   beforeCache: ->
     if @autoDestroy

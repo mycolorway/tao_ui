@@ -7,7 +7,7 @@ class Tao.Popover.Position extends TaoModule
 
   @option 'arrowVerticalAlign', default: 'middle'
 
-  @option 'offset', default: 0
+  @option 'offset', type: 'number', default: 0
 
   ARROW_OFFSET: 16
 
