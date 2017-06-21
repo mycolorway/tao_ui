@@ -16,6 +16,12 @@ module TaoUi
         :slide_box
       end
 
+      private
+
+      def default_options
+        {class: 'tao-slide-box'}
+      end
+
     end
   end
 end

@@ -2,14 +2,6 @@
 @import 'tao/ui/shared/slide_box';
 
 tao-slide-box {
-  & > .link-close {
-    left: 0.5rem;
-
-    &:active {
-      fill: $grey-color;
-    }
-  }
-
   .header {
     height: 3rem;
     background: $white-color;

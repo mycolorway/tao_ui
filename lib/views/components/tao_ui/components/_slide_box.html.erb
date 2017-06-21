@@ -1,8 +1,12 @@
 <%= content_tag component.tag_name, component.html_options do %>
-  <div class="slide-box-content">
-    <%= yield %>
+  <div class="slide-box-wrapper">
+    <div class="slide-box-content">
+      <%= yield %>
+    </div>
+    <% unless request.variant.mobile? %>
+      <%= link_to 'javascript:;', class: 'link-close', title: component.t(:close) do %>
+        <%= tao_icon :close %>
+      <% end %>
+    <% end %>
   </div>
-  <%= link_to 'javascript:;', class: 'link-close', title: component.t(:close) do %>
-    <%= tao_icon :close %>
-  <% end %>
 <% end %>

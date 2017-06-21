@@ -4,40 +4,43 @@ body.slide-box-active {
 }
 
 tao-slide-box {
-  display: none;
   position: fixed;
-  background: $white-color;
-  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: $z-index-float;
-  border: 0px solid $light-border-color;
-  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  display: none;
   overflow: hidden;
 
-  & > .link-close {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    width: 2rem;
-    height: 2rem;
-    position: absolute;
-    top: 0.5rem;
-    fill: $lighter-grey-color;
+  &[modal] {
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 200ms ease-in-out;
+  }
 
-    &:hover {
-      fill: $grey-color;
+  &[modal][active] {
+    background-color: rgba(0, 0, 0, 0.55);
+  }
+
+  & > .slide-box-wrapper {
+    background: $white-color;
+    opacity: 0;
+    padding: 1.5rem;
+    border: 0px solid $light-border-color;
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+    position: absolute;
+
+    .slide-box-content {
+      max-height: 100%;
+      overflow: auto;
     }
   }
 
-  &[with-close-button] > .link-close {
-    display: flex;
+  &[without-padding] > .slide-box-wrapper {
+    padding: 0;
   }
 
-  .slide-box-content {
-    max-height: 100%;
-    overflow: auto;
-  }
-
-  &[direction='rtl'] {
+  &[direction='rtl'] > .slide-box-wrapper {
     top: 0;
     right: 0;
     bottom: 0;
@@ -46,7 +49,7 @@ tao-slide-box {
     box-shadow: -2px 0 5px 0 rgba(0,0,0,0.05);
   }
 
-  &[direction='ltr'] {
+  &[direction='ltr'] > .slide-box-wrapper {
     top: 0;
     left: 0;
     bottom: 0;
@@ -55,7 +58,7 @@ tao-slide-box {
     box-shadow: 2px 0 5px 0 rgba(0,0,0,0.05);
   }
 
-  &[direction='ttb'] {
+  &[direction='ttb'] > .slide-box-wrapper {
     left: 0;
     top: 0;
     right: 0;
@@ -64,7 +67,7 @@ tao-slide-box {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
   }
 
-  &[direction='btt'] {
+  &[direction='btt'] > .slide-box-wrapper {
     left: 0;
     right: 0;
     bottom: 0;
@@ -73,7 +76,7 @@ tao-slide-box {
     box-shadow: 0 -2px 5px 0 rgba(0,0,0,0.05);
   }
 
-  &[active] {
+  &[active] > .slide-box-wrapper {
     opacity: 1;
     transform: translateX(0) translateY(0);
   }
