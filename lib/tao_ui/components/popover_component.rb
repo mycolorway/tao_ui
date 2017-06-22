@@ -9,7 +9,7 @@ module TaoUi
       private
 
       def default_options
-        {class: 'tao-popover'}
+        {class: 'tao-popover', auto_hide: true}
       end
 
     end

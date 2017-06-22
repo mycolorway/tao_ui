@@ -60,9 +60,11 @@ class Tao.Popover.Element extends TaoComponent
   _activeChanged: ->
     if @active
       @refresh()
+      @target.addClass 'tao-popover-active'
       @_enableAutoHide() if @autoHide
       @trigger 'tao:show'
     else
+      @target.removeClass 'tao-popover-active'
       @_disableAutoHide() if @autoHide
       @trigger 'tao:hide'
       @jq.remove() if @autoDestroy
@@ -111,6 +113,7 @@ class Tao.Popover.Element extends TaoComponent
 
   remove: ->
     @trigger 'tao:beforeRemove'
+    @target.removeClass 'tao-popover-active'
     @jq.remove()
     @trigger 'tao:remove'
     @
