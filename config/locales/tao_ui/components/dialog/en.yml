@@ -3,3 +3,5 @@ en:
     components:
       dialog:
         close: Close
+        confirm: OK
+        cancel: Cancel

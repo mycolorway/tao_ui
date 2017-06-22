@@ -3,3 +3,5 @@ zh-CN:
     components:
       dialog:
         close: 关闭
+        confirm: 确定
+        cancel: 取消

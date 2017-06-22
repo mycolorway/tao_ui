@@ -3,8 +3,8 @@
     <div class="tao-dialog-content">
       <%= yield if block_given? %>
     </div>
-    <%= link_to 'javascripts:;', class: 'link-close', title: component.t(:close) do %>
-      <%= tao_icon :close %>
-    <% end %>
+    <div class="tao-dialog-buttons">
+      <button class="button button-primary button-confirm"><%= component.confirm_text %></button>
+    </div>
   </div>
 <% end %>

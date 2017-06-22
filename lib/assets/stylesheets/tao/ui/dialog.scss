@@ -16,7 +16,7 @@ body.tao-dialog-active {
 
   &[modal] {
     background-color: rgba(0, 0, 0, 0);
-    transition: background-color 200ms ease-in-out;
+    transition: background-color 200ms;
   }
 
   &[modal][active] {
@@ -35,9 +35,9 @@ body.tao-dialog-active {
     margin: 0 auto;
     border-radius: 0 0 $border-radius-s $border-radius-s;
     background-color: $white-color;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    box-shadow: 0 0 4px 4px rgba(0,0,0,0.1);
     transform: translate(0, -30%);
-    transition: transform .3s ease-in-out, opacity .3s ease-in-out, width .2s ease-in-out;
+    transition: transform .3s, opacity .3s, width .2s;
     opacity: 0;
     padding: 1rem 2rem;
 
@@ -48,19 +48,32 @@ body.tao-dialog-active {
       .title:first-child {
         margin-bottom: 2rem;
       }
+    }
 
-      .buttons,
-      .form-buttons {
-        margin-left: 0;
-        margin-bottom: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .tao-dialog-buttons,
+    .tao-dialog-content .buttons,
+    .tao-dialog-content .form-buttons {
+      margin-left: 0;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-        .button, a {
-          margin: 0 0.75rem;
-        }
+      .button, a {
+        margin: 0 0.75rem;
       }
+    }
+
+    .tao-dialog-buttons {
+      margin: 1.5rem 0 0 0;
+    }
+  }
+
+  &.tao-confirm-dialog,
+  &.tao-message-dialog {
+    .tao-dialog-wrapper {
+      width: 32.5rem;
+      padding: 1.5rem 2rem;
     }
   }
 

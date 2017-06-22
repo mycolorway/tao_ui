@@ -1,0 +1,16 @@
+<%= content_tag component.tag_name, component.html_options do %>
+  <div class="tao-popover-content">
+    <div class="message">
+      <%= yield if block_given? %>
+    </div>
+    <div class="tao-popover-buttons">
+      <button class="button button-small button-primary button-confirm"><%= component.confirm_text %></button>
+      <button class="button button-small button-cancel"><%= component.cancel_text %></button>
+    </div>
+  </div>
+  <div class="tao-popover-arrow">
+    <i class="arrow arrow-shadow"></i>
+    <i class="arrow arrow-border"></i>
+    <i class="arrow arrow-basic"></i>
+  </div>
+<% end %>

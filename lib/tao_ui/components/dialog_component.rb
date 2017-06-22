@@ -3,7 +3,7 @@ module TaoUi
     class DialogComponent < TaoOnRails::Components::Base
 
       def initialize view, options
-        super
+        super view, options
 
         unless @options[:with_close_button].in? [true, false]
           @options[:with_close_button] = true

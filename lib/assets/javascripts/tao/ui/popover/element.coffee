@@ -9,7 +9,9 @@ class Tao.Popover.Element extends TaoComponent
 
   @attribute 'active', type: 'boolean', observe: true
 
-  @attribute 'targetSelector', 'targetTraversal', 'triggerSelector', 'triggerTraversal'
+  @attribute 'targetSelector', 'targetTraversal'
+
+  @attribute 'triggerSelector', 'triggerTraversal'
 
   @attribute 'triggerAction', default: 'click'
 
@@ -44,6 +46,8 @@ class Tao.Popover.Element extends TaoComponent
       $ @triggerSelector
     else
       @target
+
+    return unless @triggerEl && @triggerEl.length > 0
 
     if @triggerAction == 'click'
       @triggerEl.on 'click.tao-popover', (e) =>
@@ -101,6 +105,21 @@ class Tao.Popover.Element extends TaoComponent
       left: @position.left
     @
 
+  resetAttributes: ->
+    @active = false
+    @triggerEl?.off '.tao-popover'
+    @target = null
+    @triggerEl = null
+
+    for attr in _.toArray(@attributes)
+      unless attr.name in ['class', 'tao-id']
+        @jq.removeAttr attr.name
+
+  setContent: (content) ->
+    @jq.find('.tao-popover-content').empty()
+      .append content
+    @
+
   toggleActive: ->
     @active = !@active
     @
@@ -119,7 +138,7 @@ class Tao.Popover.Element extends TaoComponent
     @
 
   _disconnected: ->
-    @triggerEl.off '.tao-popover'
+    @triggerEl?.off '.tao-popover'
     $(document).off ".tao-popover-#{@taoId}"
 
 TaoComponent.register Tao.Popover.Element

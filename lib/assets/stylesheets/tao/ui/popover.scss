@@ -22,6 +22,24 @@ tao-popover,
     box-shadow: 0 3px 15px rgba(0,0,0,0.1);
   }
 
+  &.tao-confirm-popover .tao-popover-content {
+    font-size: 0.875rem;
+    text-align: center;
+    white-space: nowrap;
+    padding: 1rem 1.5rem;
+  }
+
+  .tao-popover-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .button, a {
+      margin: 0 0.5rem;
+    }
+  }
+
   .tao-popover-arrow {
     position: absolute;
     width: $arrowSize;
