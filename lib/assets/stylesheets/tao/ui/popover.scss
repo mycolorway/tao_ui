@@ -41,6 +41,7 @@ tao-popover,
   }
 
   .tao-popover-arrow {
+    display: none;
     position: absolute;
     width: $arrowSize;
     height: $arrowSize;
@@ -55,6 +56,10 @@ tao-popover,
       left: 0;
       top: 0;
     }
+  }
+
+  &[with-arrow] .tao-popover-arrow {
+    display: block;
   }
 
   &[direction='right-top'],

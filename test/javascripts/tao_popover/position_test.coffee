@@ -31,15 +31,15 @@ module 'TaoPopover.Position',
 
   test 'direction calculation', (assert) ->
     [
-      '66,16'
-      '66,200'
-      '66,384'
-      '200,86'
-      '200,296'
-      '200,314'
-      '334,16'
-      '334,200'
-      '334,384'
+      '58,10'
+      '58,200'
+      '58,390'
+      '200,78'
+      '200,288'
+      '200,322'
+      '342,10'
+      '342,200'
+      '342,390'
     ].forEach (expect, i) =>
       direction = new TaoPopover.Direction
         popover: @popover

@@ -17,15 +17,9 @@ class Tao.Popover.Element extends TaoComponent
 
   @attribute 'boundarySelector', 'direction', 'size'
 
-  @attribute 'arrowAlign', default: 'center'
-
-  @attribute 'arrowVerticalAlign', default: 'middle'
-
   @attribute 'offset', type: 'number', default: 0
 
-  @attribute 'autoHide', type: 'boolean'
-
-  @attribute 'autoDestroy', type: 'boolean'
+  @attribute 'autoHide', 'autoDestroy', 'withArrow', type: 'boolean'
 
   _connected: ->
     @_initTarget()
@@ -96,8 +90,7 @@ class Tao.Popover.Element extends TaoComponent
       popover: @jq
       target: @target
       direction: @direction.split('-')
-      arrowAlign: @arrowAlign
-      arrowVerticalAlign: @arrowVerticalAlign
+      withArrow: @withArrow
       offset: @offset
 
     @jq.css

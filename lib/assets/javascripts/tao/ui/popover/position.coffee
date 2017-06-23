@@ -3,20 +3,18 @@ class Tao.Popover.Position extends TaoModule
 
   @option 'direction', 'popover', 'target'
 
-  @option 'arrowAlign', default: 'center'
-
-  @option 'arrowVerticalAlign', default: 'middle'
+  @option 'withArrow', default: false
 
   @option 'offset', type: 'number', default: 0
 
-  ARROW_OFFSET: 16
+  @property 'arrowOffset', default: 16
 
   _init: ->
     @top = 0
     @left = 0
+    @arrowOffset = 0 unless @withArrow
 
     @_setPosition()
-    @_setArrowAlign()
     @_setOffset()
 
   _setPosition: ->
@@ -26,9 +24,14 @@ class Tao.Popover.Position extends TaoModule
     popoverWidth  = @popover.outerWidth()
     popoverHeight = @popover.outerHeight()
     parentOffset = @popover.offsetParent().offset()
-    $arrow = @popover.find('.tao-popover-arrow')
-    arrowWidth = $arrow.outerWidth()
-    arrowHeight = $arrow.outerHeight()
+
+    if @withArrow
+      $arrow = @popover.find('.tao-popover-arrow')
+      arrowWidth = $arrow.outerWidth()
+      arrowHeight = $arrow.outerHeight()
+    else
+      arrowWidth = 8
+      arrowHeight = 8
 
     switch @direction[0]
       when 'left'
@@ -42,32 +45,17 @@ class Tao.Popover.Position extends TaoModule
 
     switch @direction[1]
       when 'top'
-        @top = targetOffset.top - popoverHeight + targetHeight / 2 + arrowHeight / 2 + @ARROW_OFFSET - parentOffset.top
+        @top = targetOffset.top - popoverHeight + targetHeight - parentOffset.top
       when 'bottom'
-        @top = targetOffset.top + targetHeight / 2 - arrowHeight / 2 - @ARROW_OFFSET - parentOffset.top
+        @top = targetOffset.top - parentOffset.top
       when 'left'
-        @left = targetOffset.left - popoverWidth + targetWidth / 2 + arrowWidth / 2 + @ARROW_OFFSET - parentOffset.left
+        @left = targetOffset.left - popoverWidth + targetWidth - parentOffset.left
       when 'right'
-        @left = targetOffset.left + targetWidth / 2 - arrowWidth / 2 - @ARROW_OFFSET - parentOffset.left
+        @left = targetOffset.left - parentOffset.left
       when 'center'
         @left = targetOffset.left + targetWidth / 2  - popoverWidth / 2 - parentOffset.left
       when 'middle'
         @top = targetOffset.top + targetHeight / 2  - popoverHeight / 2 - parentOffset.top
-
-  _setArrowAlign: ->
-    if /top|bottom/.test @direction[0]
-      switch @arrowAlign
-        when 'left'
-          @left -= @target.width() / 2
-        when 'right'
-          @left += @target.width() / 2
-
-    if /left|right/.test @direction[0]
-      switch @arrowVerticalAlign
-        when 'top'
-          @top -= @target.height() / 2
-        when 'bottom'
-          @top += @target.height() / 2
 
   _setOffset: ->
     return unless @offset
