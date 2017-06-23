@@ -23,7 +23,8 @@ module Tao
       def symbol(path)
         name = File.basename(path, ".*").underscore().dasherize()
         document = Nokogiri::XML(File.read(path))
-        document.css('[id="Main"], [id="Main"] [fill], [fill="none"]').each {|n| n.delete 'fill' }
+        document.css('[id="Main"], [id="main"], [fill="none"]')
+          .each {|n| n.delete 'fill' }
         content = document.to_s
         content.gsub(/<?.+\?>/,'')
           .gsub(/<!.+?>/,'')

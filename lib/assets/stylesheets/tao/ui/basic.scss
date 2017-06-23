@@ -4,6 +4,7 @@
 a {
   &:hover {
     color: $link-hover-color;
+    fill: $link-hover-color;
   }
 
   &.warn {
