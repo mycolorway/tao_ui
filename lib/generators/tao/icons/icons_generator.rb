@@ -5,6 +5,8 @@ module Tao
 
       class_option :paths, type: :array, default: ['app/assets/icons', 'lib/assets/icons'], desc: 'Find svg files in specified paths.'
 
+      class_option :remove_color, type: :boolean, default: false, desc: 'Remove all fill attributes in svg.'
+
       attr_reader :icons_html
 
       def create_icons_file
@@ -23,8 +25,14 @@ module Tao
       def symbol(path)
         name = File.basename(path, ".*").underscore().dasherize()
         document = Nokogiri::XML(File.read(path))
-        document.css('[id="Main"], [id="main"], [fill="none"]')
-          .each {|n| n.delete 'fill' }
+
+        if options[:remove_color] && !name.include?('with-color')
+          document.css('[fill]').each {|n| n.delete 'fill' }
+        else
+          document.css('[id="Main"], [id="main"], [fill="none"]')
+            .each {|n| n.delete 'fill' }
+        end
+
         content = document.to_s
         content.gsub(/<?.+\?>/,'')
           .gsub(/<!.+?>/,'')
