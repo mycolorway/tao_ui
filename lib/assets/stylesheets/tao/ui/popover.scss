@@ -8,8 +8,11 @@ $arrowSize: 1rem;
   left: -9999px;
   top: -9999px;
   z-index: $z-index-popover;
+  opacity: 0;
+  transition: opacity 200ms;
 
   &[active] {
+    opacity: 1;
     display: block;
   }
 

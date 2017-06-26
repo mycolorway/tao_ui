@@ -19,7 +19,7 @@ class Tao.Popover.Element extends TaoComponent
 
   @attribute 'offset', type: 'number', default: 0
 
-  @attribute 'autoHide', 'autoDestroy', 'withArrow', type: 'boolean'
+  @attribute 'autoHide', 'autoDestroy', 'withArrow', 'disabled', type: 'boolean'
 
   _connected: ->
     @_initTarget()
@@ -45,25 +45,44 @@ class Tao.Popover.Element extends TaoComponent
 
     if @triggerAction == 'click'
       @triggerEl.on 'click.tao-popover', (e) =>
-        return if @triggerSelector && !$(e.currentTarget).is(@triggerSelector)
         @toggleActive()
         null
     else if @triggerAction == 'hover'
       @triggerEl.on 'mouseenter.tao-popover', (e) =>
-        return if @triggerSelector && !$(e.currentTarget).is(@triggerSelector)
         @active = true
         null
       .on 'mouseleave.tao-popover', (e) =>
-        return if @triggerSelector && !$(e.currentTarget).is(@triggerSelector)
         @active = false
         null
 
   _initSize: ->
     @jq.width(@size) if @size
 
+  _beforeActiveChanged: (active) ->
+    return false if @disabled
+
+    if active
+      @jq.show()
+      @refresh()
+      @reflow()
+    else
+      reset = =>
+        if @autoDestroy
+          @remove()
+        else
+          @jq.hide()
+
+      # in case the popover is hidden too fast
+      if @jq.is(':visible')
+        if @jq.css('opacity') * 1 == 0
+          reset()
+        else
+          @one 'transitionend', ->
+            reset()
+    null
+
   _activeChanged: ->
     if @active
-      @refresh()
       @target.addClass 'tao-popover-active'
       @_enableAutoHide() if @autoHide
       @trigger 'tao:show'
@@ -71,7 +90,6 @@ class Tao.Popover.Element extends TaoComponent
       @target.removeClass 'tao-popover-active'
       @_disableAutoHide() if @autoHide
       @trigger 'tao:hide'
-      @jq.remove() if @autoDestroy
 
   _enableAutoHide: ->
     $(document).on "mousedown.tao-popover-#{@taoId}", (e) =>
@@ -127,6 +145,7 @@ class Tao.Popover.Element extends TaoComponent
     if @autoDestroy
       @remove()
     else
+      @jq.hide()
       @active = false
 
   remove: ->

@@ -51,12 +51,19 @@ class Tao.SlideBox.ElementBase extends TaoComponent
       @jq.show()
       @reflow()
     else
+      reset = =>
+        if @autoDestroy
+          @remove()
+        else
+          @jq.hide()
+
+      # in case the slide box is hidden too fast
       if @jq.is(':visible')
-        @one 'transitionend', =>
-          if @autoDestroy
-            @remove()
-          else
-            @jq.hide()
+        if @jq.css('opacity') * 1 == 0
+          reset()
+        else
+          @one 'transitionend', ->
+            reset()
     null
 
   _activeChanged: ->
