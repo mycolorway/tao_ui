@@ -1,42 +1,28 @@
 @import 'tao/ui/globals';
 
-$arrowSize: 1rem;
+$arrowSize: 0.75rem;
 
-.tao-popover {
+.tao-tooltip {
   display: none;
   position: absolute;
   left: -9999px;
   top: -9999px;
   z-index: $z-index-popover;
+  opacity: 0;
+  transition: opacity 400ms;
 
   &[active] {
+    opacity: 1;
     display: block;
   }
 
   .tao-popover-content {
-    padding: 0.75em 1em;
-    background: $white-color;
-    border: 1px solid $border-color;
-    border-radius: $border-radius-s;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-  }
-
-  &.tao-confirm-popover .tao-popover-content {
-    font-size: 0.875rem;
-    text-align: center;
+    padding: 0.5rem 0.75rem;
+    background: $grey-color;
+    color: $white-color;
+    border-radius: $border-radius;
     white-space: nowrap;
-    padding: 1rem 1.5rem;
-  }
-
-  .tao-popover-buttons {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .button, a {
-      margin: 0 0.5rem;
-    }
+    font-size: 0.875rem;
   }
 
   .tao-popover-arrow {
@@ -51,9 +37,15 @@ $arrowSize: 1rem;
       width: 0;
       border-style: solid;
       border-width: $arrowSize / 2;
+      border-color: $grey-color;
       position: absolute;
       left: 0;
       top: 0;
+    }
+
+    .arrow-border,
+    .arrow-shadow {
+      display: none;
     }
   }
 
@@ -69,18 +61,7 @@ $arrowSize: 1rem;
     }
 
     .arrow-basic {
-      border-color: transparent #fff transparent transparent;
-      left: 1px;
-    }
-
-    .arrow-border {
-      border-color: transparent #ddd transparent transparent;
-      left: 0px;
-    }
-
-    .arrow-shadow {
-      border-color: transparent rgba(0,0,0,0.08) transparent transparent;
-      left: -1px;
+      border-color: transparent $grey-color transparent transparent;
     }
   }
 
@@ -92,18 +73,7 @@ $arrowSize: 1rem;
     }
 
     .arrow-basic {
-      border-color: transparent transparent transparent #fff;
-      left: -1px;
-    }
-
-    .arrow-border {
-      border-color: transparent transparent transparent #ddd;
-      left: 0px;
-    }
-
-    .arrow-shadow {
-      border-color: transparent transparent transparent rgba(0,0,0,0.08);
-      left: 1px;
+      border-color: transparent transparent transparent $grey-color;
     }
   }
 
@@ -137,18 +107,7 @@ $arrowSize: 1rem;
     }
 
     .arrow-basic {
-      border-color: #fff transparent transparent transparent;
-      top: -1px;
-    }
-
-    .arrow-border {
-      border-color: #ddd transparent transparent transparent;
-      top: 0px;
-    }
-
-    .arrow-shadow {
-      border-color: rgba(0,0,0,0.08) transparent transparent transparent;
-      top: 1px;
+      border-color: $grey-color transparent transparent transparent;
     }
   }
 
@@ -160,18 +119,7 @@ $arrowSize: 1rem;
     }
 
     .arrow-basic {
-      border-color: transparent transparent #fff transparent;
-      top: 1px;
-    }
-
-    .arrow-border {
-      border-color: transparent transparent #ddd transparent;
-      top: 0px;
-    }
-
-    .arrow-shadow {
-      border-color: transparent transparent rgba(0,0,0,0.08) transparent;
-      top: -1px;
+      border-color: transparent transparent $grey-color transparent;
     }
   }
 

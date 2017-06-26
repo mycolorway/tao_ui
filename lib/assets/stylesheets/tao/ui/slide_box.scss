@@ -1,7 +1,7 @@
 @import 'tao/ui/globals';
 @import 'tao/ui/shared/slide_box';
 
-tao-slide-box {
+.tao-slide-box {
   & > .slide-box-wrapper > .link-close {
     display: none;
     justify-content: center;
@@ -25,4 +25,5 @@ tao-slide-box {
   &[with-close-button] > .slide-box-wrapper > .link-close {
     display: flex;
   }
+
 }

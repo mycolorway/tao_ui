@@ -45,12 +45,18 @@ class Tao.Popover.Element extends TaoComponent
 
     if @triggerAction == 'click'
       @triggerEl.on 'click.tao-popover', (e) =>
+        return if @triggerSelector && !$(e.currentTarget).is(@triggerSelector)
         @toggleActive()
+        null
     else if @triggerAction == 'hover'
       @triggerEl.on 'mouseenter.tao-popover', (e) =>
+        return if @triggerSelector && !$(e.currentTarget).is(@triggerSelector)
         @active = true
+        null
       .on 'mouseleave.tao-popover', (e) =>
+        return if @triggerSelector && !$(e.currentTarget).is(@triggerSelector)
         @active = false
+        null
 
   _initSize: ->
     @jq.width(@size) if @size
