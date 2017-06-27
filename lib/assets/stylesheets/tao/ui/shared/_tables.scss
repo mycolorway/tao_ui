@@ -6,7 +6,7 @@ table.table {
   th {
     border-top: 1px solid $table-line-color;
     border-bottom: 1px solid $table-line-color;
-    padding: 0.875rem 0.625rem;
+    padding: $table-th-padding;
     font-size: $font-size-xs;
     font-weight: normal;
     line-height: 1.125;
@@ -16,7 +16,7 @@ table.table {
 
   td {
     border-bottom: 1px solid $table-line-color;
-    padding: 1.125rem 0.625rem;
+    padding: $table-td-padding;
     line-height: 1.125;
     text-align: left;
   }
