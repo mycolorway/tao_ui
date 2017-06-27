@@ -48,6 +48,16 @@ table.table {
       }
     }
 
+    tr.expandable {
+      .td-expand-icon .icon {
+        fill: $lighter-grey-color;
+      }
+
+      &:hover .td-expand-icon .icon {
+        fill: $grey-color;
+      }
+    }
+
     tr.expanded {
       border-bottom-color: transparent;
 
