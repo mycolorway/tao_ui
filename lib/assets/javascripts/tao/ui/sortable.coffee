@@ -4,7 +4,7 @@ class Tao.Sortable extends TaoComponent
 
   @attribute 'groupSelector'
 
-  @attribute 'itemSelector', default: '[draggable]'
+  @attribute 'itemSelector', default: '[draggable="true"]'
 
   @attribute 'axis', default: 'y'
 
@@ -17,7 +17,7 @@ class Tao.Sortable extends TaoComponent
       e.originalEvent.dataTransfer.effectAllowed = 'move'
       e.originalEvent.dataTransfer.setData 'text/plain', 'tao-sortable'
       e.originalEvent.dataTransfer.setDragImage(
-        @_sortingHelper.get(0),
+        @_sortingItem.get(0),
         e.clientX - itemRect.left,
         e.clientY - itemRect.top
       )
@@ -28,10 +28,8 @@ class Tao.Sortable extends TaoComponent
     $(document).off ".tao-sortable-#{@taoId}"
 
   _startDragging: ($item) ->
-    return if @triggerHandler('tao:beforeSortStart', [$item]) == false
-
+    @trigger 'tao:beforeSortStart', [$item]
     @_sortingItem = $item
-    @_sortingHelper = @_renderDragHelper $item
     setTimeout -> $item.addClass('tao-sortable-sorting')
     @trigger 'tao:sortStart', [@_sortingItem]
 
@@ -54,13 +52,6 @@ class Tao.Sortable extends TaoComponent
       $(window).off ".tao-sortable-#{@taoId}"
       null
 
-  _renderDragHelper: ($item) ->
-    $item.clone()
-      .addClass('tao-sortable-helper')
-      .outerWidth $item.outerWidth()
-      .outerHeight $item.outerHeight()
-      .insertAfter $item
-
   _performDragging: (mousePosition) ->
     return unless @_sortingItem
     item = @_findNearestItem mousePosition
@@ -71,10 +62,8 @@ class Tao.Sortable extends TaoComponent
 
   _stopDragging: ->
     @_sortingItem.removeClass('tao-sortable-sorting')
-    @_sortingHelper.remove()
     @trigger 'tao:sortEnd', [@_sortingItem]
     @_sortingItem = null
-    @_sortingHelper = null
 
   _findNearestItem: (mousePosition, dimensions = @_itemDimensions()) ->
     minDistance = null
