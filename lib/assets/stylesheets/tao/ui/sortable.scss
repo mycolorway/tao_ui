@@ -1,0 +1,23 @@
+@import 'tao/ui/globals';
+
+.tao-sortable {
+
+  [draggable] {
+    cursor: move;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+  }
+
+  .tao-sortable-sorting {
+    visibility: hidden !important;
+  }
+
+  .tao-sortable-helper {
+    position: fixed !important;
+    top: -9999px;
+    left: -9999px;
+  }
+
+}

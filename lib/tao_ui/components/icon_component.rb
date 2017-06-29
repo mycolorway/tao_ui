@@ -1,5 +1,3 @@
-require 'tao_on_rails/components/base'
-
 module TaoUi
   module Components
     class IconComponent < TaoOnRails::Components::Base

@@ -6,5 +6,6 @@
 #= require ./popover
 #= require ./tooltip
 #= require ./dialog
+#= require ./sortable
 
 window.Tao ||= {}
