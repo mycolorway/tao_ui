@@ -10,6 +10,7 @@ class Tao.Sortable extends TaoComponent
 
   _connected: ->
     @on 'dragstart', @itemSelector, (e) =>
+      e.stopPropagation()
       $item = $ e.currentTarget
       itemRect = $item.get(0).getBoundingClientRect()
       @_startDragging $item
