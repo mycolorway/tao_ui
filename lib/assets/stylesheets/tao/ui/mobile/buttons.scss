@@ -1,2 +1,8 @@
 @import 'tao/ui/mobile/globals';
 @import 'tao/ui/shared/buttons';
+
+.button {
+  &.text-with-icon {
+    padding-left: 1.125em;
+  }
+}
