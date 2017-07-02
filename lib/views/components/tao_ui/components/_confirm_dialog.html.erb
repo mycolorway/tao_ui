@@ -4,8 +4,8 @@
       <%= yield if block_given? %>
     </div>
     <div class="tao-dialog-buttons">
-      <button class="button button-primary button-confirm"><%= component.confirm_text %></button>
-      <button class="button button-cancel"><%= component.cancel_text %></button>
+      <button type="button" class="button button-primary button-confirm"><%= component.confirm_text %></button>
+      <button type="button" class="button button-cancel"><%= component.cancel_text %></button>
     </div>
   </div>
 <% end %>
