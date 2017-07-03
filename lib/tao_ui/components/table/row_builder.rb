@@ -6,7 +6,7 @@ module TaoUi
 
         def initialize view, options = {}
           super
-          @cell_count = 0
+          reset_cell_count
         end
 
         def cell content_or_options = nil, cell_options = nil, &block
@@ -34,8 +34,10 @@ module TaoUi
           end
         end
 
-        def reset
+        def reset_cell_count
           @cell_count = 0
+          @cell_count += 1 if selectable
+          @cell_count += 1 if expandable
         end
 
         private

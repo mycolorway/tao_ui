@@ -6,7 +6,7 @@ module TaoUi
 
         def row row_options = {}, &block
           row_content = view.capture(row_builder, &block)
-          row_builder.reset
+          row_builder.reset_cell_count
 
           if expandable
             row_content
