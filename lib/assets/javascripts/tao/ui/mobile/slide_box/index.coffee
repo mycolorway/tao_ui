@@ -1,4 +1,2 @@
-#= require_self
+#= require tao/ui/shared/slide_box/export
 #= require ./element
-
-Tao.SlideBox = {}
