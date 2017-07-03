@@ -33,10 +33,6 @@ table.table {
 
   &[expandable] {
 
-    table.table {
-      table-layout: fixed;
-    }
-
     .th-expand-icon,
     .td-expand-icon {
       display: table-cell;

@@ -1,10 +1,17 @@
+require 'tao_ui/components/table/base_builder'
+require 'tao_ui/components/table/table_builder'
+require 'tao_ui/components/table/head_builder'
+require 'tao_ui/components/table/body_builder'
+require 'tao_ui/components/table/row_builder'
+
 module TaoUi
   module Components
     class TableComponent < TaoOnRails::Components::Base
 
       def render &block
         if block_given?
-          table = view.content_tag('table', class: 'table', &block)
+          table_content = view.capture(builder, &block)
+          table = view.content_tag('table', table_content, class: 'table')
           view.content_tag tag_name, table, html_options
         else
           super
@@ -16,6 +23,13 @@ module TaoUi
       end
 
       private
+
+      def builder
+        @builder ||= Table::TableBuilder.new(view, {
+          expandable: options[:expandable],
+          selectable: options[:selectable]
+        })
+      end
 
       def default_options
         {class: 'tao-table'}
