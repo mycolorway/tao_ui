@@ -1,0 +1,6 @@
+zh-CN:
+  tao_ui:
+    components:
+      tree:
+        item:
+          loading: 正在加载

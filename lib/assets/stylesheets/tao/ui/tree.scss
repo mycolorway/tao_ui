@@ -1,0 +1,94 @@
+@import 'tao/ui/globals';
+
+$tree-item-height: 2rem !default;
+$tree-item-font-size: 0.875rem !default;
+
+.tao-tree {
+
+  .tao-tree-item {
+    display: block;
+
+    .tao-tree-item-padding {
+      height: 1rem;
+      width: 2rem;
+    }
+
+    & > .tao-tree-item-content {
+      display: flex;
+      align-items: center;
+      height: $tree-item-height;
+      line-height: $tree-item-height;
+      font-size: $tree-item-font-size;
+
+      .link-toggle-item {
+        display: block;
+        background: $white-color;
+        width: 1.375rem;
+        height: 1.375rem;
+        padding: 0.25rem;
+        transition: transform 200ms;
+        border: 1px solid $border-color;
+        border-radius: 50%;
+        margin: 0 0.75rem 0 0;
+        cursor: pointer;
+        visibility: hidden;
+
+        .icon {
+          display: block;
+          width: 0.75rem;
+          height: 0.75rem;
+          fill: $lighter-grey-color;
+        }
+
+        &:hover {
+          background: $grey-bg-color;
+
+          .icon {
+            fill: $grey-color;
+          }
+        }
+      }
+
+      tao-check-box {
+        margin: 0 0.75rem 0 0;
+      }
+    }
+
+    & > .tao-tree-list {
+      display: none;
+      transition: height 200ms;
+      overflow: hidden;
+
+      & > .tao-tree-loading {
+        display: flex;
+        align-items: center;
+        height: $tree-item-height;
+        line-height: $tree-item-height;
+        font-size: $tree-item-font-size;
+        color: $lighter-grey-color;
+
+        .icon {
+          margin: 0 0.75rem 0 0;
+        }
+      }
+    }
+
+    &[expandable] {
+      & > .tao-tree-item-content .link-toggle-item {
+        visibility: visible;
+      }
+    }
+
+    &[expanded] {
+      & > .tao-tree-item-content .link-toggle-item {
+        transform: rotate(90deg);
+      }
+
+      & > .tao-tree-list {
+        display: block;
+        height: auto;
+      }
+    }
+  }
+
+}

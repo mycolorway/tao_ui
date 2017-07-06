@@ -1,0 +1,6 @@
+en:
+  tao_ui:
+    components:
+      tree:
+        item:
+          loading: Loading
