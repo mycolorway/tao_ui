@@ -9,8 +9,40 @@ $tree-item-font-size: 0.875rem !default;
     display: block;
 
     .tao-tree-item-padding {
-      height: 1rem;
-      width: 2rem;
+      height: 100%;
+      display: flex;
+
+      .padding-item {
+        position: relative;
+        height: 100%;
+        width: 2rem;
+
+        &:before {
+          content: '';
+          display: block;
+          border-left: 1px solid $light-border-color;
+          position: absolute;
+          left: 0.625rem;
+          top: 0;
+          right: 0;
+          bottom: 0;
+        }
+
+        &:last-child:after {
+          content: '';
+          display: block;
+          border-bottom: 1px solid $light-border-color;
+          position: absolute;
+          left: 0.625rem;
+          top: 0;
+          right: 0.5rem;
+          bottom: 50%;
+        }
+      }
+    }
+
+    &:last-child > .tao-tree-item-content .tao-tree-item-padding .padding-item:last-child:before {
+      bottom: 50%;
     }
 
     & > .tao-tree-item-content {

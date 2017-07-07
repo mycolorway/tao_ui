@@ -54,8 +54,6 @@ module TaoUi
           @remote = html_options.delete(:remote) || false
           @remote = @remote.call(item, depth) if @remote.respond_to?(:call)
           if @remote && @remote.is_a?(Hash)
-            @remote[:params] ||= {}
-            @remote[:params].merge!(depth: depth)
             html_options[:remote] = @remote.to_json
           end
         end
@@ -70,7 +68,13 @@ module TaoUi
         end
 
         def render_padding(size = depth)
-          (view.content_tag('div', nil, class: 'tao-tree-item-padding') * size).html_safe
+          if size > 0
+            view.content_tag 'div', class: 'tao-tree-item-padding' do
+              (view.content_tag('div', nil, class: 'padding-item') * size).html_safe
+            end
+          else
+            ''.html_safe
+          end
         end
 
         def render_icon
@@ -80,7 +84,11 @@ module TaoUi
         end
 
         def render_checkbox
-          view.tao_check_box if @selectable
+          if @selectable
+            view.tao_check_box
+          else
+            ''.html_safe
+          end
         end
 
         def render_children &block

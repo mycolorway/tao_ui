@@ -4,13 +4,14 @@ module TaoUi
       class ListComponent < TaoOnRails::Components::Base
 
         attr_reader :items, :selectable, :depth, :remote,
-                    :expanded, :children_key
+                    :expanded, :children_key, :selected
 
         def initialize view, items, options = {}
           super view, options
           @items = items
           @children_key = @options.delete(:children_key)
           @selectable = @options.delete(:selectable)
+          @selected = @options.delete(:selected)
           @remote = @options.delete(:remote)
           @expanded = @options.delete(:expanded)
           @depth = @options.delete(:depth)
@@ -23,6 +24,7 @@ module TaoUi
               content += view.tao_tree_item item, {
                 children_key: children_key,
                 selectable: selectable,
+                selected: selected,
                 depth: depth,
                 remote: remote,
                 expanded: expanded

@@ -9,7 +9,7 @@ module TaoUi
     config.i18n.load_path += Dir[config.root.join('config', 'locales', '**', '*.{rb,yml}')]
     paths['app/views'] << 'lib/views'
 
-    initializer "tao_on_rails.view_helpers" do |app|
+    initializer "tao_ui.view_helpers" do |app|
       ::ActiveSupport.on_load :action_view do
         include TaoUi::ActionView::Helpers
       end
