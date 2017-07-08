@@ -7,5 +7,6 @@
 #= require ./tooltip
 #= require ./dialog
 #= require ./sortable
+#= require ./tree
 
 window.Tao ||= {}
