@@ -8,6 +8,10 @@ table.table {
 }
 
 .tao-table {
+  .table {
+    table-layout: fixed;
+  }
+
   .th-checkbox,
   .td-checkbox {
     display: none;

@@ -7,12 +7,9 @@ class Tao.Popover.Position extends TaoModule
 
   @option 'offset', type: 'number', default: 0
 
-  @property 'arrowOffset', default: 16
-
   _init: ->
     @top = 0
     @left = 0
-    @arrowOffset = 0 unless @withArrow
 
     @_setPosition()
     @_setOffset()
@@ -45,13 +42,25 @@ class Tao.Popover.Position extends TaoModule
 
     switch @direction[1]
       when 'top'
-        @top = targetOffset.top - popoverHeight + targetHeight - parentOffset.top
+        if @withArrow
+          @top = targetOffset.top - popoverHeight + targetHeight / 2 + arrowHeight * 1.5 - parentOffset.top
+        else
+          @top = targetOffset.top - popoverHeight + targetHeight - parentOffset.top
       when 'bottom'
-        @top = targetOffset.top - parentOffset.top
+        if @withArrow
+          @top = targetOffset.top + targetHeight / 2 - arrowHeight * 1.5 - parentOffset.top
+        else
+          @top = targetOffset.top - parentOffset.top
       when 'left'
-        @left = targetOffset.left - popoverWidth + targetWidth - parentOffset.left
+        if @withArrow
+          @left = targetOffset.left - popoverWidth + targetWidth / 2 + arrowWidth * 1.5 - parentOffset.left
+        else
+          @left = targetOffset.left - popoverWidth + targetWidth - parentOffset.left
       when 'right'
-        @left = targetOffset.left - parentOffset.left
+        if @withArrow
+          @left = targetOffset.left + targetWidth / 2 - arrowWidth * 1.5 - parentOffset.left
+        else
+          @left = targetOffset.left - parentOffset.left
       when 'center'
         @left = targetOffset.left + targetWidth / 2  - popoverWidth / 2 - parentOffset.left
       when 'middle'
