@@ -94,8 +94,12 @@ class Tao.Popover.Element extends TaoComponent
   _enableAutoHide: ->
     $(document).on "mousedown.tao-popover-#{@taoId}", (e) =>
       return unless @active
-      target = $ e.target
-      return if target.is(@target) or @jq.has(target).length or target.is(@)
+      target = e.target
+      inTarget = @target.is(target) || @target.has(target).length
+      inTrigger = @triggerEl && (@triggerEl.is(target) || @triggerEl.has(target).length)
+      inPopover = @jq.is(target) || @jq.has(target).length
+
+      return if inTarget || inTrigger || inPopover
       @active = false
       null
 
