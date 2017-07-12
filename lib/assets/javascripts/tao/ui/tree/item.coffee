@@ -11,23 +11,27 @@ class Tao.Tree.Item extends TaoComponent
   @attribute 'remote', type: 'hash'
 
   _connected: ->
-    @checkbox = @findComponent '> .tao-tree-item-content tao-check-box', =>
-      @_selectedChanged() if @selected
-    @_bind()
+    @_initSelectable() if @selectable
+    @_initExpandable() if @expandable
 
   _disconnected: ->
     @off()
-    @checkbox.off()
+    @checkbox?.off()
     @checkbox = null
 
-  _bind: ->
-    @on 'click', '> .tao-tree-item-content > .link-toggle-item', (e) =>
-      @_toggleExpanded() if @expandable && !@jq.hasClass('expanding')
-      null
+  _initSelectable: ->
+    @checkbox = @findComponent '> .tao-tree-item-content tao-check-box', =>
+      @_selectedChanged() if @selected
 
     @checkbox.on 'tao:change', (e) =>
       @selected = e.currentTarget.checked
       @trigger 'tao-tree-item:selectedChange', [@selected]
+      null
+
+  _initExpandable: ->
+    @on 'click', '> .tao-tree-item-content > .link-toggle-item', (e) =>
+      return if @jq.hasClass('expanding')
+      @_toggleExpanded()
       null
 
   _beforeExpandedChanged: (expanded) ->
@@ -40,6 +44,7 @@ class Tao.Tree.Item extends TaoComponent
     null
 
   _expandedChanged: ->
+    return unless @expandable
     $list = @jq.find('> .tao-tree-list')
     if @expanded
       $list.css 'height',  $list.get(0).scrollHeight
