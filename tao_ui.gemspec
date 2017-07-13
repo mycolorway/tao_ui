@@ -24,5 +24,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "nokogiri", '~> 1.8.0'
   s.add_development_dependency "blade", "~> 0.7.0"
-  s.add_development_dependency "blade-sauce_labs_plugin", "~> 0.7.0"
+  s.add_development_dependency "blade-sauce_labs_plugin", "~> 0.7.1"
+  s.add_development_dependency "selenium-webdriver", '~> 3.2.0'
 end
