@@ -79,6 +79,7 @@ class Tao.Tree.Item extends TaoComponent
       url: @remote.url
       type: 'get'
       data: _.extend {}, @remote.params,
+        tree_item_id: @taoId
         depth: @depth
         selectable: @selectable || undefined
         selected: @selected || undefined
