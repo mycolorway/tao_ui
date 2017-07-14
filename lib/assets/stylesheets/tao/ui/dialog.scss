@@ -39,9 +39,10 @@ body.tao-dialog-active {
     transform: translate(0, -30%);
     transition: transform .3s, opacity .3s, width .2s;
     opacity: 0;
-    padding: 1rem 2rem;
 
     .tao-dialog-content {
+      padding: 1rem 2rem;
+
       h3:first-child,
       .title:first-child {
         margin-bottom: 2rem;
@@ -71,7 +72,10 @@ body.tao-dialog-active {
   &.tao-message-dialog {
     .tao-dialog-wrapper {
       width: 32.5rem;
-      padding: 1.5rem 2rem;
+
+      .tao-dialog-content {
+        padding: 1.5rem 2rem;
+      }
     }
   }
 

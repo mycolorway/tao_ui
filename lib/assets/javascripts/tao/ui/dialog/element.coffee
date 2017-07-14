@@ -46,7 +46,7 @@ class Tao.Dialog.Element extends TaoComponent
 
   _beforeActiveChanged: (active) ->
     if active
-      @jq.find('.tao-dialog-wrapper').css
+      @jq.find('.tao-dialog-content').css
         maxHeight: $(window).height() - 40
       @jq.show()
       @reflow()
