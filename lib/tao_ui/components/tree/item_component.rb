@@ -92,18 +92,16 @@ module TaoUi
         end
 
         def render_children &block
-          if expandable
-            if remote
-              render_children_placeholder
-            else
-              view.tao_tree_list children, {
-                selectable: selectable,
-                depth: depth + 1,
-                remote: options[:remote],
-                expanded: options[:expanded],
-                children_key: @children_key
-              }, &block
-            end
+          if remote
+            render_children_placeholder
+          else
+            view.tao_tree_list children, {
+              selectable: selectable,
+              depth: depth + 1,
+              remote: options[:remote],
+              expanded: options[:expanded],
+              children_key: @children_key
+            }, &block
           end
         end
 

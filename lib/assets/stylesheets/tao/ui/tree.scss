@@ -111,7 +111,7 @@ $tree-item-font-size: 0.875rem !default;
       }
     }
 
-    &[expanded] {
+    &[expandable][expanded] {
       & > .tao-tree-item-content .link-toggle-item {
         transform: rotate(90deg);
       }

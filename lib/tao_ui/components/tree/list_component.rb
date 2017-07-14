@@ -19,19 +19,18 @@ module TaoUi
 
         def render &block
           view.content_tag 'div', html_options do
-            content = ''.html_safe
-            items.each do |item|
-              content += view.tao_tree_item item, {
-                children_key: children_key,
-                selectable: selectable,
-                selected: selected,
-                depth: depth,
-                remote: remote,
-                expanded: expanded
-              }, &block
+            if items && items.size > 0
+              items.each do |item|
+                view.concat view.tao_tree_item item, {
+                  children_key: children_key,
+                  selectable: selectable,
+                  selected: selected,
+                  depth: depth,
+                  remote: remote,
+                  expanded: expanded
+                }, &block
+              end
             end
-
-            content
           end
         end
 
