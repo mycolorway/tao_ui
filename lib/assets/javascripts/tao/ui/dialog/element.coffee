@@ -36,9 +36,11 @@ class Tao.Dialog.Element extends TaoComponent
   _bind: ->
     @on 'click', (e) =>
       @active = false if e.target == @
+      null
 
     @on 'click', ".tao-dialog-wrapper > .link-close, #{@closeSelector}", =>
       @active = false
+      null
 
     if @triggerEl && @triggerEl.length > 0
       @triggerEl.on "click.tao-slide-box-#{@taoId}", (e) =>
@@ -57,13 +59,13 @@ class Tao.Dialog.Element extends TaoComponent
         else
           @jq.hide()
 
-      # in case the dialog is hidden too fast
       if @jq.is(':visible')
-        if @jq.css('opacity') * 1 == 0
+        @on 'transitionend', (e) =>
+          return unless $(e.target).is('.tao-dialog-wrapper')
+          @off 'transitionend'
           reset()
-        else
-          @one 'transitionend', ->
-            reset()
+      else
+        reset()
 
     null
 

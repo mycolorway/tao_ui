@@ -15,7 +15,7 @@ tao-slide-box {
 
   &[modal] {
     background-color: rgba(0, 0, 0, 0);
-    transition: background-color 200ms ease-in-out;
+    transition: background-color 300ms ease-in-out;
   }
 
   &[modal][active] {
@@ -27,7 +27,7 @@ tao-slide-box {
     opacity: 0;
     padding: 1.5rem;
     border: 0px solid $light-border-color;
-    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+    transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
     position: absolute;
 
     .slide-box-content {

@@ -16,7 +16,7 @@ body.tao-dialog-active {
 
   &[modal] {
     background-color: rgba(0, 0, 0, 0);
-    transition: background-color 200ms;
+    transition: background-color 300ms;
   }
 
   &[modal][active] {
@@ -37,7 +37,7 @@ body.tao-dialog-active {
     background-color: $white-color;
     box-shadow: 0 0 4px 4px rgba(0,0,0,0.1);
     transform: translate(0, -30%);
-    transition: transform .3s, opacity .3s, width .2s;
+    transition: transform 300ms, opacity 300ms;
     opacity: 0;
 
     .tao-dialog-content {
@@ -72,9 +72,10 @@ body.tao-dialog-active {
   &.tao-message-dialog {
     .tao-dialog-wrapper {
       width: 32.5rem;
+      padding: 1.5rem 2rem;
 
       .tao-dialog-content {
-        padding: 1.5rem 2rem;
+        padding: 0;
       }
     }
   }

@@ -59,11 +59,12 @@ class Tao.SlideBox.ElementBase extends TaoComponent
 
       # in case the slide box is hidden too fast
       if @jq.is(':visible')
-        if @jq.css('opacity') * 1 == 0
+        @on 'transitionend', (e) =>
+          return unless $(e.target).is('.slide-box-wrapper')
+          @off 'transitionend'
           reset()
-        else
-          @one 'transitionend', ->
-            reset()
+      else
+        reset()
     null
 
   _activeChanged: ->

@@ -72,13 +72,13 @@ class Tao.Popover.Element extends TaoComponent
         else
           @jq.hide()
 
-      # in case the popover is hidden too fast
       if @jq.is(':visible')
-        if @jq.css('opacity') * 1 == 0
+        @on 'transitionend', (e) =>
+          return unless e.target == @
+          @off 'transitionend'
           reset()
-        else
-          @one 'transitionend', ->
-            reset()
+      else
+        reset()
     null
 
   _activeChanged: ->
