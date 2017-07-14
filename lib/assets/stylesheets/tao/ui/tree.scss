@@ -39,7 +39,7 @@
       }
     }
 
-    &:first-child > .tao-tree-item-content .tao-tree-item-padding .padding-item:last-child:before {
+    &:first-child[depth='0'] > .tao-tree-item-content .tao-tree-item-padding .padding-item:last-child:before {
       top: 50%;
     }
 
