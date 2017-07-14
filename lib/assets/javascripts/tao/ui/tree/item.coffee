@@ -87,5 +87,6 @@ class Tao.Tree.Item extends TaoComponent
   updateList: ($newList) ->
     @_afterTransition() if @jq.hasClass('expanding')
     @jq.find('> .tao-tree-list').replaceWith($newList)
+    @trigger 'tao-tree-item:listUpdate', [$newList]
 
 TaoComponent.register Tao.Tree.Item
