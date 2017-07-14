@@ -1,9 +1,7 @@
 @import 'tao/ui/globals';
 
-$tree-item-height: 2rem !default;
-$tree-item-font-size: 0.875rem !default;
-
 .tao-tree {
+  display: block;
 
   .tao-tree-item {
     display: block;
@@ -35,10 +33,14 @@ $tree-item-font-size: 0.875rem !default;
           position: absolute;
           left: 0.625rem;
           top: 0;
-          right: 0.5rem;
+          right: 0.6rem;
           bottom: 50%;
         }
       }
+    }
+
+    &:first-child > .tao-tree-item-content .tao-tree-item-padding .padding-item:last-child:before {
+      top: 50%;
     }
 
     &:last-child > .tao-tree-item-content .tao-tree-item-padding .padding-item:last-child:before {
@@ -49,7 +51,6 @@ $tree-item-font-size: 0.875rem !default;
       display: flex;
       align-items: center;
       height: $tree-item-height;
-      line-height: $tree-item-height;
       font-size: $tree-item-font-size;
 
       .link-toggle-item {
@@ -61,9 +62,10 @@ $tree-item-font-size: 0.875rem !default;
         transition: transform 200ms;
         border: 1px solid $border-color;
         border-radius: 50%;
-        margin: 0 0.75rem 0 0;
+        margin: 0 0.8rem 0 -2rem;
         cursor: pointer;
         visibility: hidden;
+        position: relative;
 
         .icon {
           display: block;

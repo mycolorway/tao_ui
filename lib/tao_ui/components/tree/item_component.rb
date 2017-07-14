@@ -68,12 +68,8 @@ module TaoUi
         end
 
         def render_padding(size = depth)
-          if size > 0
-            view.content_tag 'div', class: 'tao-tree-item-padding' do
-              (view.content_tag('div', nil, class: 'padding-item') * size).html_safe
-            end
-          else
-            ''.html_safe
+          view.content_tag 'div', class: 'tao-tree-item-padding' do
+            (view.content_tag('div', nil, class: 'padding-item') * (size + 1)).html_safe
           end
         end
 
