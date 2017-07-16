@@ -130,9 +130,14 @@ class Tao.Sortable extends TaoComponent
     y: dimension.top + (dimension.height / 2)
 
   _getDistanceFromItem: (item, position) ->
-    deltaX = Math.abs(position.x - item.center.x)
-    deltaY = Math.abs(position.y - item.center.y)
-    Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2))
+    rect = item.dimension
+    if position.x >= rect.left && position.x <= rect.right &&
+        position.y >= rect.top && position.y <= rect.bottom
+      0
+    else
+      deltaX = Math.min(Math.abs(position.x - rect.left), Math.abs(position.x - rect.right))
+      deltaY = Math.min(Math.abs(position.y - rect.top), Math.abs(position.y - rect.bottom))
+      Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2))
 
   _expireDimensionCache: ->
     @_dimentions = null
