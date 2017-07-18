@@ -37,4 +37,17 @@ tao-slide-box {
       }
     }
   }
+
+  .buttons {
+    border-top: 1px solid $border-color;
+
+    .button {
+      border-radius: 0;
+      border-width: 0 1px 0 0;
+
+      &:last-child {
+        border-right-width: 0;
+      }
+    }
+  }
 }
