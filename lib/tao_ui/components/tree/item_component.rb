@@ -59,7 +59,7 @@ module TaoUi
         end
 
         def init_expanded
-          @expandable = !!remote || (children.is_a?(Array) && children.size > 0)
+          @expandable = !!remote || children.try(:any?)
           html_options[:expandable] = @expandable ? '' : nil
 
           @expanded = (html_options.delete(:expanded) || false) && expandable && !remote
