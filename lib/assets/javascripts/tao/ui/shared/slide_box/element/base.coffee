@@ -48,14 +48,17 @@ class Tao.SlideBox.ElementBase extends TaoComponent
 
   _beforeActiveChanged: (active) ->
     if active
+      @trigger 'tao:beforeShow'
       @jq.show()
       @reflow()
     else
+      @trigger 'tao:beforeHide'
       reset = =>
         if @autoDestroy
           @remove()
         else
           @jq.hide()
+        @trigger 'tao:afterHide'
 
       # in case the slide box is hidden too fast
       if @jq.is(':visible')

@@ -84,8 +84,8 @@ class Tao.Sortable extends TaoComponent
 
   _moveItem: (item, mousePosition) ->
     if item.type == 'group'
-      item.el.append @_sortingItem
       return if @triggerHandler('tao:sorting', [@_sortingItem, item]) == false
+      item.el.append @_sortingItem
     else
       method = if (@axis == 'y' && mousePosition.y > item.center.y) ||
           (@axis == 'x' && mousePosition.x > item.center.x)
