@@ -72,10 +72,10 @@ class Tao.Dialog.Element extends TaoComponent
   _activeChanged: ->
     if @active
       $('body').addClass('dialog-active')
-      @trigger 'tao:show'
+      @namespacedTrigger 'show'
     else
       $('body').removeClass('dialog-active')
-      @trigger 'tao:hide'
+      @namespacedTrigger 'hide'
 
   setContent: (content) ->
     @jq.find('.tao-dialog-content').empty()
@@ -83,9 +83,9 @@ class Tao.Dialog.Element extends TaoComponent
     @
 
   remove: ->
-    @trigger 'tao:beforeRemove'
+    @namespacedTrigger 'beforeRemove'
     @jq.remove()
-    @trigger 'tao:remove'
+    @namespacedTrigger 'remove'
     @
 
   beforeCache: ->

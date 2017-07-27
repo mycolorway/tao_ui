@@ -6,12 +6,12 @@ class Tao.Popover.Confirm extends Tao.Popover.Element
     super
 
     @on 'click', '.button-confirm', (e) =>
-      @trigger 'tao:confirm'
+      @namespacedTrigger 'confirm'
       @active = false
       null
 
     @on 'click', '.button-cancel', (e) =>
-      @trigger 'tao:cancel'
+      @namespacedTrigger 'cancel'
       @active = false
       null
 

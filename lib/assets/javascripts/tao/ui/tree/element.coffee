@@ -21,7 +21,7 @@ class Tao.Tree.Element extends TaoComponent
       item = e.currentTarget
       return unless item == e.target
       @_refreshAssociatedItems(item) if @associatedSelect
-      @trigger 'tao-tree:selectedChange', [@selectedItems]
+      @namespacedTrigger 'selectedChange', [@selectedItems]
       null
 
   _refreshAssociatedItems: (item) ->

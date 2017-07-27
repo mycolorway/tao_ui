@@ -85,11 +85,11 @@ class Tao.Popover.Element extends TaoComponent
     if @active
       @target.addClass 'tao-popover-active'
       @_enableAutoHide() if @autoHide
-      @trigger 'tao:show'
+      @namespacedTrigger 'show'
     else
       @target.removeClass 'tao-popover-active'
       @_disableAutoHide() if @autoHide
-      @trigger 'tao:hide'
+      @namespacedTrigger 'hide'
 
   _enableAutoHide: ->
     $(document).on "mousedown.tao-popover-#{@taoId}", (e) =>
@@ -153,10 +153,10 @@ class Tao.Popover.Element extends TaoComponent
       @active = false
 
   remove: ->
-    @trigger 'tao:beforeRemove'
+    @namespacedTrigger 'beforeRemove'
     @target.removeClass 'tao-popover-active'
     @jq.remove()
-    @trigger 'tao:remove'
+    @namespacedTrigger 'remove'
     @
 
   _disconnected: ->

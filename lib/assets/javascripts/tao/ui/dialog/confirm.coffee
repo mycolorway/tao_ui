@@ -6,7 +6,7 @@ class Tao.Dialog.Confirm extends Tao.Dialog.Message
     super
 
     @on 'click', '.button-cancel', (e) =>
-      @trigger 'tao:cancel'
+      @namespacedTrigger 'cancel'
       @active = false
       null
 

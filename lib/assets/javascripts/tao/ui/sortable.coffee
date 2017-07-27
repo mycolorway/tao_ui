@@ -29,10 +29,10 @@ class Tao.Sortable extends TaoComponent
     $(document).off ".tao-sortable-#{@taoId}"
 
   _startDragging: ($item) ->
-    @trigger 'tao:beforeSortStart', [$item]
+    @namespacedTrigger 'beforeSortStart', [$item]
     @_sortingItem = $item
     setTimeout -> $item.addClass('tao-sortable-sorting')
-    @trigger 'tao:sortStart', [@_sortingItem]
+    @namespacedTrigger 'sortStart', [@_sortingItem]
 
     $(window).on "scroll.tao-sortable-#{@taoId}", _.throttle (e) =>
       @_expireDimensionCache()
@@ -63,7 +63,7 @@ class Tao.Sortable extends TaoComponent
 
   _stopDragging: ->
     @_sortingItem.removeClass('tao-sortable-sorting')
-    @trigger 'tao:sortEnd', [@_sortingItem]
+    @namespacedTrigger 'sortEnd', [@_sortingItem]
     @_sortingItem = null
 
   _findNearestItem: (mousePosition, dimensions = @_itemDimensions()) ->

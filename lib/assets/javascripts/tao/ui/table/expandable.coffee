@@ -8,10 +8,10 @@ Tao.Table.Expandable = ->
       $row = $ e.currentTarget
       if $row.hasClass 'expanded'
         @collapseRow $row
-        @trigger 'tao:expandRow', $row
+        @namespacedTrigger 'expandRow', $row
       else
         @expandRow $row
-        @trigger 'tao:collapseRow', $row
+        @namespacedTrigger 'collapseRow', $row
       null
 
   expandRow: (row) ->

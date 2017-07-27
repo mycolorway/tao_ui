@@ -10,7 +10,7 @@ Tao.Table.Selectable = ->
       cb = e.currentTarget
       $row = cb.jq.closest('tr')
       @toggleSelectRow $row, cb.checked
-      @trigger 'tao:selectedChange', [@selectedRows]
+      @namespacedTrigger 'selectedChange', [@selectedRows]
 
     @on 'tao:change', '.th-checkbox tao-check-box', (e) =>
       cb = e.currentTarget
@@ -18,7 +18,7 @@ Tao.Table.Selectable = ->
         @selectAllRows()
       else
         @unselectAllRows()
-      @trigger 'tao:selectedChange', [@selectedRows]
+      @namespacedTrigger 'selectedChange', [@selectedRows]
 
   toggleSelectRow: (row, selected) ->
     return @ unless @selectable

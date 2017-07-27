@@ -25,7 +25,7 @@ class Tao.Tree.Item extends TaoComponent
 
     @checkbox.on 'tao:change', (e) =>
       @selected = e.currentTarget.checked
-      @trigger 'tao-tree-item:selectedChange', [@selected]
+      @namespacedTrigger 'selectedChange', [@selected]
       null
 
   _initExpandable: ->
@@ -88,6 +88,6 @@ class Tao.Tree.Item extends TaoComponent
   updateList: ($newList) ->
     @_afterTransition() if @jq.hasClass('expanding')
     @jq.find('> .tao-tree-list').replaceWith($newList)
-    @trigger 'tao-tree-item:listUpdate', [$newList]
+    @namespacedTrigger 'listUpdate', [$newList]
 
 TaoComponent.register Tao.Tree.Item
