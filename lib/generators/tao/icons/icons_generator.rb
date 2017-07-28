@@ -5,7 +5,7 @@ module Tao
 
       class_option :paths, type: :array, default: ['app/assets/icons', 'lib/assets/icons'], desc: 'Find svg files in specified paths.'
 
-      class_option :remove_color, type: :boolean, default: false, desc: 'Remove all fill attributes in svg.'
+      class_option :remove_color, type: :boolean, default: true, desc: 'Remove all fill attributes in svg.'
 
       attr_reader :icons_html
 
