@@ -1,0 +1,23 @@
+@import 'tao/ui/globals';
+
+.tabs {
+  display: flex;
+  align-items: flex-end;
+
+  .tab {
+    padding: 0.5rem 0.5rem 1rem 0.5rem;
+    font-size: 1rem;
+    color: $lightest-grey-color;
+    border-bottom: 3px solid $white-color;
+    margin: 0 1.5rem 0 0;
+
+    &:hover {
+      color: $grey-color;
+    }
+
+    &.active {
+      border-color: $ui-color;
+      color: $grey-color;
+    }
+  }
+}
