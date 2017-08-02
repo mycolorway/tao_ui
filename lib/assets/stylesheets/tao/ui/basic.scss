@@ -7,11 +7,14 @@ a {
     fill: $link-hover-color;
   }
 
-  &.warn {
-    &:hover {
-      color: lighten($red-color, 10%);
-      fill: lighten($red-color, 10%);
-    }
+  &.warn:hover {
+    color: lighten($red-color, 10%);
+    fill: lighten($red-color, 10%);
+  }
+
+  &.disabled:hover {
+    color: $lightest-grey-color;
+    fill: $lightest-grey-color;
   }
 }
 
