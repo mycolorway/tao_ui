@@ -1,9 +1,3 @@
-require 'tao_ui/components/table/base_builder'
-require 'tao_ui/components/table/table_builder'
-require 'tao_ui/components/table/head_builder'
-require 'tao_ui/components/table/body_builder'
-require 'tao_ui/components/table/row_builder'
-
 module TaoUi
   module Components
     class TableComponent < TaoOnRails::Components::Base

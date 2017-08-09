@@ -1,6 +1,3 @@
-require 'tao_ui/components/tree/item_component'
-require 'tao_ui/components/tree/list_component'
-
 module TaoUi
   module Components
     class TreeComponent < TaoOnRails::Components::Base
