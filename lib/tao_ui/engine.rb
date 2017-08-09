@@ -4,7 +4,7 @@ require 'tao_on_rails'
 module TaoUi
   class Engine < ::Rails::Engine
 
-    config.eager_load_paths += Dir["#{config.root}/lib/**/"]
+    config.eager_load_paths += Dir["#{config.root}/lib"]
 
     config.i18n.load_path += Dir[config.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
