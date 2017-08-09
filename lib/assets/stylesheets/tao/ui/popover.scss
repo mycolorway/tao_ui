@@ -69,6 +69,7 @@ $arrowSize: 1rem;
   &[direction='right-middle'] {
     .tao-popover-arrow {
       left: -$arrowSize;
+      width: $arrowSize / 2;
     }
 
     .arrow-basic {
@@ -92,6 +93,7 @@ $arrowSize: 1rem;
   &[direction='left-middle'] {
     .tao-popover-arrow {
       right: -$arrowSize;
+      width: $arrowSize / 2;
     }
 
     .arrow-basic {
@@ -137,6 +139,7 @@ $arrowSize: 1rem;
   &[direction='top-center'] {
     .tao-popover-arrow {
       bottom: -$arrowSize;
+      height: $arrowSize / 2;
     }
 
     .arrow-basic {
@@ -160,6 +163,7 @@ $arrowSize: 1rem;
   &[direction='bottom-center'] {
     .tao-popover-arrow {
       top: -$arrowSize;
+      height: $arrowSize / 2;
     }
 
     .arrow-basic {

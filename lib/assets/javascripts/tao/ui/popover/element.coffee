@@ -7,7 +7,7 @@ class Tao.Popover.Element extends TaoComponent
 
   @tag 'tao-popover'
 
-  @attribute 'active', type: 'boolean', observe: true
+  @attribute 'active', 'disabled', type: 'boolean', observe: true
 
   @attribute 'targetSelector', 'targetTraversal'
 
@@ -19,7 +19,7 @@ class Tao.Popover.Element extends TaoComponent
 
   @attribute 'offset', type: 'number', default: 0
 
-  @attribute 'autoHide', 'autoDestroy', 'withArrow', 'disabled', type: 'boolean'
+  @attribute 'autoHide', 'autoDestroy', 'withArrow', type: 'boolean'
 
   _connected: ->
     @_initTarget()
@@ -83,13 +83,17 @@ class Tao.Popover.Element extends TaoComponent
 
   _activeChanged: ->
     if @active
-      @target.addClass 'tao-popover-active'
+      @target.addClass "#{@constructor._tag}-active"
       @_enableAutoHide() if @autoHide
       @namespacedTrigger 'show'
     else
-      @target.removeClass 'tao-popover-active'
+      @target.removeClass "#{@constructor._tag}-active"
       @_disableAutoHide() if @autoHide
       @namespacedTrigger 'hide'
+
+  _beforeDisabledChanged: (disabled) ->
+    @active = false if disabled && @active
+    null
 
   _enableAutoHide: ->
     $(document).on "mousedown.tao-popover-#{@taoId}", (e) =>
