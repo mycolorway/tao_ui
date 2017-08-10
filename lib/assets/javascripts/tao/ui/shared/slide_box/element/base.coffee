@@ -74,10 +74,10 @@ class Tao.SlideBox.ElementBase extends TaoComponent
     @_unbindAutoHideEvent() if @autoHide
     if @active
       @_bindAutoHideEvent() if @autoHide
-      $('body').addClass('slide-box-active')
+      $('body, html').addClass('slide-box-active')
       @namespacedTrigger 'show'
     else
-      $('body').removeClass('slide-box-active')
+      $('body, html').removeClass('slide-box-active')
       @namespacedTrigger 'hide'
 
   _autoHideEvent: ''
