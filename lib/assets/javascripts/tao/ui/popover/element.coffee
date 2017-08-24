@@ -19,13 +19,18 @@ class Tao.Popover.Element extends TaoComponent
 
   @attribute 'offset', type: 'number', default: 0
 
-  @attribute 'autoHide', 'autoDestroy', 'withArrow', type: 'boolean'
+  @attribute 'autoHide', 'autoDestroy', 'withArrow', 'autoActivate', type: 'boolean'
 
   _connected: ->
     @_initTarget()
     @_initTrigger()
     @_initSize()
-    @_activeChanged() if @active
+
+    if @autoActivate
+      @reflow()
+      @active = true
+    else if @active
+      @_activeChanged()
 
   _initTarget: ->
     @target = if @targetTraversal && @targetSelector
