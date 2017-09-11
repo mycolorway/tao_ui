@@ -30,7 +30,7 @@ Tao.Table.Expandable = ->
     $row.addClass 'expanded expanding'
     $panel.addClass 'expanded'
     $panelWrapper.css 'height', $panelWrapper[0].scrollHeight
-    @_loadRemotePanel $panel
+    @_loadRemotePanel $panel.find('> [data-url]')
     @
 
   collapseRow: (row) ->
