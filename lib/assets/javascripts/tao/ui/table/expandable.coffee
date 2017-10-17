@@ -51,11 +51,12 @@ Tao.Table.Expandable = ->
     $panelWrapper.css 'height', 0
     @
 
-  _loadRemotePanel: ($panel) ->
-    return unless $panel.is('[data-url]')
+  _loadRemotePanel: ($panelWrapper) ->
+    return unless $panelWrapper.is('[data-url]')
     $.ajax
-      url: $panel.data('url')
+      url: $panelWrapper.data('url')
       method: 'get'
       dataType: 'script'
     .done ->
-      $panel.removeAttr 'data-url'
+      $panelWrapper.removeAttr 'data-url'
+      $panelWrapper.css 'height', $panelWrapper[0].scrollHeight
