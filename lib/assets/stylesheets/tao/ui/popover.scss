@@ -92,7 +92,7 @@ $arrowSize: 1rem;
   &[direction='left-bottom'],
   &[direction='left-middle'] {
     .tao-popover-arrow {
-      right: -$arrowSize;
+      right: -$arrowSize / 2;
       width: $arrowSize / 2;
     }
 
@@ -138,7 +138,7 @@ $arrowSize: 1rem;
   &[direction='top-right'],
   &[direction='top-center'] {
     .tao-popover-arrow {
-      bottom: -$arrowSize;
+      bottom: -$arrowSize / 2;
       height: $arrowSize / 2;
     }
 
