@@ -71,10 +71,10 @@ class Tao.Dialog.Element extends TaoComponent
 
   _activeChanged: ->
     if @active
-      $('body, html').addClass('tao-dialog-active')
+      $('body').addClass('tao-dialog-active')
       @namespacedTrigger 'show'
     else
-      $('body, html').removeClass('tao-dialog-active')
+      $('body').removeClass('tao-dialog-active')
       @namespacedTrigger 'hide'
 
   setContent: (content) ->
