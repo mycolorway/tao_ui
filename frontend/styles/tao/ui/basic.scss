@@ -1,0 +1,30 @@
+@import './globals';
+@import './shared/basic';
+
+a {
+  &:hover {
+    color: $link-hover-color;
+    fill: $link-hover-color;
+  }
+
+  &.warn:hover {
+    color: lighten($red-color, 10%);
+    fill: lighten($red-color, 10%);
+  }
+
+  &.disabled:hover {
+    color: $lightest-grey-color;
+    fill: $lightest-grey-color;
+  }
+}
+
+a:not([href]):not([tabindex]) {
+  &:hover {
+    color: inherit;
+    fill: inherit;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
