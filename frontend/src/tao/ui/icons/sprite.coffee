@@ -1,4 +1,5 @@
 import BrowserSprite from 'svg-baker-runtime/src/browser-sprite'
+import { Application } from '@mycolorway/tao'
 
 spriteNodeId = 'tao-icons'
 spriteGlobalVarName = '__TAO_SVG_SPRITE__'
@@ -11,7 +12,7 @@ else
       id: spriteNodeId
   window[spriteGlobalVarName] = sprite
 
-Tao.Application.initializer 'icons', (app) ->
+Application.initializer 'icons', (app) ->
   app.on 'page-load', (page) ->
     existing = document.getElementById(spriteNodeId)
     if existing

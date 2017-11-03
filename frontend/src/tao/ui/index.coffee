@@ -11,3 +11,7 @@ import Tree from './tree'
 export default {
   Table, SlideBox, Popover, Tooltip, Dialog, Sortable, Tree, Icons
 }
+
+export {
+  Table, SlideBox, Popover, Tooltip, Dialog, Sortable, Tree, Icons
+}

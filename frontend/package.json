@@ -24,7 +24,8 @@
   "homepage": "https://github.com/mycolorway/tao_ui#readme",
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.4",
-    "@mycolorway/tao": "link:../../tao_on_rails/frontend"
+    "@mycolorway/tao": "link:../../tao_on_rails/frontend",
+    "normalize.css": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.5",
@@ -32,10 +33,8 @@
     "@babel/preset-env": "^7.0.0-beta.5",
     "babel-loader": "8.0.0-beta.0",
     "chai": "^4.1.2",
-    "clean-webpack-plugin": "^0.1.17",
     "coffee-loader": "^0.9.0",
     "coffeescript": "^2.0.2",
-    "copy-webpack-plugin": "^4.2.0",
     "jquery": "^3.2.1",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
