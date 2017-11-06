@@ -2,7 +2,7 @@
   "name": "@mycolorway/tao_ui",
   "version": "1.0.0",
   "description": "UI library based on tao",
-  "main": "src/tao/ui/index.coffee",
+  "main": "src/index.coffee",
   "scripts": {
     "test": "karma start",
     "ci": "karma start --single-run"

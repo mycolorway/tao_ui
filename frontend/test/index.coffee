@@ -1,5 +1,5 @@
-import '@mycolorway/tao/src/tao/custom_elements'
+import '@mycolorway/tao/src/custom_elements'
 
-import './tao_ui/popover/direction_test'
-import './tao_ui/popover/position_test'
-import './tao_ui/popover/element_test'
+import './popover/direction_test'
+import './popover/position_test'
+import './popover/element_test'
