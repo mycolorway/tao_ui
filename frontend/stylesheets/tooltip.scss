@@ -1,0 +1,146 @@
+
+$arrowSize: 0.75rem;
+
+.tao-tooltip {
+  display: none;
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  z-index: $z-index-popover;
+  opacity: 0;
+  transition: opacity 200ms;
+
+  &[active] {
+    opacity: 1;
+    display: block;
+  }
+
+  .tao-popover-content {
+    padding: 0.5rem 0.75rem;
+    background: $grey-color;
+    color: $white-color;
+    border-radius: $border-radius;
+    white-space: nowrap;
+    font-size: 0.875rem;
+  }
+
+  .tao-popover-arrow {
+    display: none;
+    position: absolute;
+    width: $arrowSize;
+    height: $arrowSize;
+
+    .arrow {
+      font-size: 0;
+      height: 0;
+      width: 0;
+      border-style: solid;
+      border-width: $arrowSize / 2;
+      border-color: $grey-color;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .arrow-border,
+    .arrow-shadow {
+      display: none;
+    }
+  }
+
+  &[with-arrow] .tao-popover-arrow {
+    display: block;
+  }
+
+  &[direction='right-top'],
+  &[direction='right-bottom'],
+  &[direction='right-middle'] {
+    .tao-popover-arrow {
+      left: -$arrowSize;
+    }
+
+    .arrow-basic {
+      border-color: transparent $grey-color transparent transparent;
+    }
+  }
+
+  &[direction='left-top'],
+  &[direction='left-bottom'],
+  &[direction='left-middle'] {
+    .tao-popover-arrow {
+      right: -$arrowSize;
+    }
+
+    .arrow-basic {
+      border-color: transparent transparent transparent $grey-color;
+    }
+  }
+
+  &[direction='left-top'],
+  &[direction='right-top'] {
+    .tao-popover-arrow {
+      bottom: $arrowSize;
+    }
+  }
+
+  &[direction='left-bottom'],
+  &[direction='right-bottom'] {
+    .tao-popover-arrow {
+      top: $arrowSize;
+    }
+  }
+
+  &[direction='left-middle'],
+  &[direction='right-middle'] {
+    .tao-popover-arrow {
+      top: 50%;
+      margin-top: -$arrowSize / 2;
+    }
+  }
+
+  &[direction='top-left'],
+  &[direction='top-right'],
+  &[direction='top-center'] {
+    .tao-popover-arrow {
+      bottom: -$arrowSize;
+    }
+
+    .arrow-basic {
+      border-color: $grey-color transparent transparent transparent;
+    }
+  }
+
+  &[direction='bottom-left'],
+  &[direction='bottom-right'],
+  &[direction='bottom-center'] {
+    .tao-popover-arrow {
+      top: -$arrowSize;
+    }
+
+    .arrow-basic {
+      border-color: transparent transparent $grey-color transparent;
+    }
+  }
+
+  &[direction='top-left'],
+  &[direction='bottom-left'] {
+    .tao-popover-arrow {
+      right: $arrowSize;
+    }
+  }
+
+  &[direction='top-right'],
+  &[direction='bottom-right'] {
+    .tao-popover-arrow {
+      left: $arrowSize;
+    }
+  }
+
+  &[direction='top-center'],
+  &[direction='bottom-center'] {
+    .tao-popover-arrow {
+      left: 50%;
+      margin-left: -$arrowSize / 2;
+    }
+  }
+}

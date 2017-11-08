@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import { expect } from 'chai'
 import { Component } from '@mycolorway/tao'
-import Popover from '../../src/desktop/popover'
+import Popover from '../../javascripts/popover'
 
 describe 'Popover Element',
   target = null
@@ -36,7 +36,7 @@ describe 'Popover Element',
     popover.active = true
     expect(popover.active).to.be.true
     expect(popover.hasAttribute('active')).to.be.ok
-    expect(popover.direction).to.equal 'bottom-right'
+    expect(popover.direction).to.equal 'right-middle'
 
   it 'can be moved', (done) ->
     $container = $('''

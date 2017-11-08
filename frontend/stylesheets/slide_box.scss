@@ -1,0 +1,38 @@
+@import './shared/slide_box';
+
+.tao-slide-box {
+  .slide-box-content > header,
+  .slide-box-content > .header {
+    text-align: center;
+    font-size: 1rem;
+    color: $text-color;
+    line-height: 3rem;
+    border-bottom: 1px solid $border-color;
+    font-weight: bold;
+  }
+
+  & > .slide-box-wrapper > .link-close {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    fill: $lighter-grey-color;
+
+    &:hover {
+      fill: $grey-color;
+    }
+
+    &:hover {
+      fill: $grey-color;
+    }
+  }
+
+  &[with-close-button] > .slide-box-wrapper > .link-close {
+    display: flex;
+  }
+
+}

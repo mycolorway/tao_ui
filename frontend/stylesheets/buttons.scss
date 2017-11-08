@@ -1,0 +1,7 @@
+@import './shared/buttons';
+
+.button {
+  &:hover {
+    text-decoration: none;
+  }
+}
