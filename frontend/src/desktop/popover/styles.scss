@@ -1,0 +1,206 @@
+@import '../globals';
+
+$arrowSize: 1rem;
+
+.tao-popover {
+  display: none;
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  z-index: $z-index-popover;
+  opacity: 0;
+  transition: opacity 200ms;
+
+  &[active] {
+    opacity: 1;
+    display: block;
+  }
+
+  .tao-popover-content {
+    padding: 0.75em 1em;
+    background: $white-color;
+    border: 1px solid $border-color;
+    border-radius: $border-radius-s;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  }
+
+  &.tao-confirm-popover .tao-popover-content {
+    font-size: 0.875rem;
+    text-align: center;
+    white-space: nowrap;
+    padding: 1rem 1.5rem;
+  }
+
+  .tao-popover-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .button, a {
+      margin: 0 0.5rem;
+    }
+  }
+
+  .tao-popover-arrow {
+    display: none;
+    position: absolute;
+    width: $arrowSize;
+    height: $arrowSize;
+
+    .arrow {
+      font-size: 0;
+      height: 0;
+      width: 0;
+      border-style: solid;
+      border-width: $arrowSize / 2;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &[with-arrow] .tao-popover-arrow {
+    display: block;
+  }
+
+  &[direction='right-top'],
+  &[direction='right-bottom'],
+  &[direction='right-middle'] {
+    .tao-popover-arrow {
+      left: -$arrowSize;
+      width: $arrowSize / 2;
+    }
+
+    .arrow-basic {
+      border-color: transparent #fff transparent transparent;
+      left: 1px;
+    }
+
+    .arrow-border {
+      border-color: transparent #ddd transparent transparent;
+      left: 0px;
+    }
+
+    .arrow-shadow {
+      border-color: transparent rgba(0,0,0,0.08) transparent transparent;
+      left: -1px;
+    }
+  }
+
+  &[direction='left-top'],
+  &[direction='left-bottom'],
+  &[direction='left-middle'] {
+    .tao-popover-arrow {
+      right: -$arrowSize / 2;
+      width: $arrowSize / 2;
+    }
+
+    .arrow-basic {
+      border-color: transparent transparent transparent #fff;
+      left: -1px;
+    }
+
+    .arrow-border {
+      border-color: transparent transparent transparent #ddd;
+      left: 0px;
+    }
+
+    .arrow-shadow {
+      border-color: transparent transparent transparent rgba(0,0,0,0.08);
+      left: 1px;
+    }
+  }
+
+  &[direction='left-top'],
+  &[direction='right-top'] {
+    .tao-popover-arrow {
+      bottom: $arrowSize;
+    }
+  }
+
+  &[direction='left-bottom'],
+  &[direction='right-bottom'] {
+    .tao-popover-arrow {
+      top: $arrowSize;
+    }
+  }
+
+  &[direction='left-middle'],
+  &[direction='right-middle'] {
+    .tao-popover-arrow {
+      top: 50%;
+      margin-top: -$arrowSize / 2;
+    }
+  }
+
+  &[direction='top-left'],
+  &[direction='top-right'],
+  &[direction='top-center'] {
+    .tao-popover-arrow {
+      bottom: -$arrowSize / 2;
+      height: $arrowSize / 2;
+    }
+
+    .arrow-basic {
+      border-color: #fff transparent transparent transparent;
+      top: -1px;
+    }
+
+    .arrow-border {
+      border-color: #ddd transparent transparent transparent;
+      top: 0px;
+    }
+
+    .arrow-shadow {
+      border-color: rgba(0,0,0,0.08) transparent transparent transparent;
+      top: 1px;
+    }
+  }
+
+  &[direction='bottom-left'],
+  &[direction='bottom-right'],
+  &[direction='bottom-center'] {
+    .tao-popover-arrow {
+      top: -$arrowSize;
+      height: $arrowSize / 2;
+    }
+
+    .arrow-basic {
+      border-color: transparent transparent #fff transparent;
+      top: 1px;
+    }
+
+    .arrow-border {
+      border-color: transparent transparent #ddd transparent;
+      top: 0px;
+    }
+
+    .arrow-shadow {
+      border-color: transparent transparent rgba(0,0,0,0.08) transparent;
+      top: -1px;
+    }
+  }
+
+  &[direction='top-left'],
+  &[direction='bottom-left'] {
+    .tao-popover-arrow {
+      right: $arrowSize;
+    }
+  }
+
+  &[direction='top-right'],
+  &[direction='bottom-right'] {
+    .tao-popover-arrow {
+      left: $arrowSize;
+    }
+  }
+
+  &[direction='top-center'],
+  &[direction='bottom-center'] {
+    .tao-popover-arrow {
+      left: 50%;
+      margin-left: -$arrowSize / 2;
+    }
+  }
+}

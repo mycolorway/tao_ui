@@ -1,6 +1,6 @@
 import $ from 'jquery'
 import { expect } from 'chai'
-import Direction from '../../src/popover/direction'
+import Direction from '../../src/desktop/popover/direction'
 
 describe 'Popover Direction Module', ->
 

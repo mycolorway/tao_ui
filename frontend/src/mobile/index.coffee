@@ -1,6 +1,9 @@
-import '../shared/ujs'
-import Icons from '../icons'
+import './init'
+import './button'
+import './code'
+import './table'
+import Icon from '../icon'
 import SlideBox from './slide_box'
 
-export default { Icons, SlideBox }
-export { Icons, SlideBox }
+export default { Icon, SlideBox }
+export { Icon, SlideBox }

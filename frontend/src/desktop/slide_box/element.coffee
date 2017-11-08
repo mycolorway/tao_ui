@@ -2,6 +2,8 @@ import SlideBoxElementBase from '../../shared/slide_box/element'
 
 class SlideBoxElement extends SlideBoxElementBase
 
-  _autoHideEvent: 'touchstart'
+  @attribute 'withCloseButton', type: 'boolean'
+
+  _autoHideEvent: 'mousedown'
 
 export default SlideBoxElement.register()

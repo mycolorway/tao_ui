@@ -1,0 +1,8 @@
+@import '../globals';
+@import '../../shared/button/styles';
+
+.button {
+  &:hover {
+    text-decoration: none;
+  }
+}

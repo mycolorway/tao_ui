@@ -2,7 +2,7 @@
   "name": "@mycolorway/tao_ui",
   "version": "1.0.0",
   "description": "UI library based on tao",
-  "main": "src/index.coffee",
+  "main": "javascripts/index.coffee",
   "scripts": {
     "test": "karma start",
     "ci": "karma start --single-run"
@@ -23,18 +23,19 @@
   },
   "homepage": "https://github.com/mycolorway/tao_ui#readme",
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.4",
-    "@mycolorway/tao": "link:../../tao_on_rails/frontend",
     "normalize.css": "^7.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.5",
-    "@babel/plugin-transform-runtime": "^7.0.0-beta.4",
-    "@babel/preset-env": "^7.0.0-beta.5",
-    "babel-loader": "8.0.0-beta.0",
+    "@mycolorway/tao": "link:../../tao_on_rails/frontend",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-runtime": "^6.26.0",
     "chai": "^4.1.2",
     "coffee-loader": "^0.9.0",
     "coffeescript": "^2.0.2",
+    "css-loader": "^0.28.7",
     "jquery": "^3.2.1",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
@@ -43,6 +44,16 @@
     "karma-webpack": "^2.0.5",
     "lodash": "^4.17.4",
     "mocha": "^4.0.1",
+    "node-sass": "^4.6.0",
+    "rails-ujs": "^5.1.4",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "svg-sprite-loader": "^3.4.1",
     "webpack": "^3.8.1"
+  },
+  "peerDependencies": {
+    "@mycolorway/tao": "link:../../tao_on_rails/frontend",
+    "babel-runtime": "^6.26.0",
+    "rails-ujs": "^5.1.4"
   }
 }

@@ -1,0 +1,20 @@
+
+// variables
+
+$mobile: true !default;
+
+$font-size-h1: 1.375rem !default;
+$font-size-h2: 1.25rem !default;
+$font-size-h3: 1.125rem !default;
+$font-size-h4: 1rem !default;
+$font-size-h5: 0.875rem !default;
+$font-size-h6: 0.75rem !default;
+
+$button-font-size: 1rem !default;
+$button-line-height: 1.5rem !default;
+$button-padding-v: 0.625rem !default;
+$button-padding-h: 1.25rem !default;
+$button-padding: $button-padding-v $button-padding-h !default;
+
+
+@import '../shared/globals';
