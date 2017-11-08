@@ -1,6 +1,6 @@
 {
   "name": "@mycolorway/tao_ui",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "UI library based on tao",
   "main": "javascripts/index.coffee",
   "scripts": {
@@ -26,7 +26,7 @@
     "normalize.css": "^7.0.0"
   },
   "devDependencies": {
-    "@mycolorway/tao": "link:../../tao_on_rails/frontend",
+    "@mycolorway/tao": "1.0.0-alpha.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -48,7 +48,7 @@
     "webpack": "^3.8.1"
   },
   "peerDependencies": {
-    "@mycolorway/tao": "link:../../tao_on_rails/frontend",
+    "@mycolorway/tao": "1.0.0-alpha.1",
     "babel-runtime": "^6.26.0",
     "rails-ujs": "^5.1.4"
   }

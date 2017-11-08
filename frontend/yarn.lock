@@ -2,9 +2,11 @@
 # yarn lockfile v1
 
 
-"@mycolorway/tao@link:../../tao_on_rails/frontend":
-  version "0.0.0"
-  uid ""
+"@mycolorway/tao@1.0.0-alpha.1":
+  version "1.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@mycolorway/tao/-/tao-1.0.0-alpha.1.tgz#d1efd9218ea395197eacfbbb3d43ebc962363e62"
+  dependencies:
+    "@webcomponents/custom-elements" "^1.0.4"
 
 "@webcomponents/custom-elements@^1.0.4":
   version "1.0.4"
