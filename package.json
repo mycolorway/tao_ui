@@ -3,7 +3,9 @@
   "version": "1.0.0-alpha.1",
   "description": "UI library based on tao",
   "main": "frontend/javascripts/index.coffee",
-  "files": ["frontend"],
+  "files": [
+    "frontend"
+  ],
   "scripts": {
     "test": "karma start",
     "ci": "karma start --single-run"
@@ -46,12 +48,10 @@
     "mocha": "^4.0.1",
     "rails-ujs": "^5.1.4",
     "svg-sprite-loader": "^3.4.1",
+    "turbolinks": "^5.0.3",
     "webpack": "^3.8.1"
   },
   "peerDependencies": {
-    "@mycolorway/tao": "1.0.0-alpha.1",
-    "babel-runtime": "^6.26.0",
-    "rails-ujs": "^5.1.4",
-    "turbolinks": "^5.0.3"
+    "@mycolorway/tao": "mycolorway/tao_on_rails#v1.0.0"
   }
 }
