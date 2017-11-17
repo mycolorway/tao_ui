@@ -33,6 +33,11 @@
       .link-close {
         fill: $lighter-grey-color;
 
+        .icon {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+
         &:active {
           fill: $grey-color;
         }
