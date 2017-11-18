@@ -1,0 +1,7 @@
+$button-font-size: 1rem !default;
+$button-line-height: 1.5rem !default;
+$button-padding-v: 0.625rem !default;
+$button-padding-h: 1.25rem !default;
+$button-padding: $button-padding-v $button-padding-h !default;
+
+@import '../../shared/variables/buttons';

@@ -1,4 +1,3 @@
-require 'autoprefixer-rails'
 require 'tao_on_rails'
 
 module TaoUi

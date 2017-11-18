@@ -1,0 +1,99 @@
+$button-color: $green-color !default;
+$button-hover-color: #66cc33 !default;
+$button-active-color: #22AA11 !default;
+$button-warn-color: $red-color !default;
+$button-warn-active-color: #EE6633 !default;
+
+$button-font-size: 1rem !default;
+$button-line-height: 1.5 !default;
+$button-padding-v: 0.3125em !default;
+$button-padding-h: 1.5em !default;
+$button-padding: $button-padding-v $button-padding-h !default;
+
+$small-button-font-size: 0.75rem !default;
+$small-button-line-height: 1.5 !default;
+$small-button-padding-v: 0.25em !default;
+$small-button-padding-h: 0.875em !default;
+$small-button-padding: $small-button-padding-v $small-button-padding-h !default;
+
+$default-button-colors: (
+  normal: (
+    bg: $white-color,
+    text: $button-color,
+    border: $border-color
+  ),
+  hover: (
+    bg: $white-color,
+    text: $button-hover-color,
+    border: $button-hover-color
+  ),
+  active: (
+    bg: $white-color,
+    text: $button-active-color,
+    border: $button-active-color
+  ),
+  disable: (
+    bg: $white-color,
+    text: $lightest-grey-color,
+    border: $lighter-line-color
+  )
+) !default;
+
+$primary-button-colors: (
+  normal: (
+    bg: $button-color,
+    text: $white-color,
+    border: $button-color
+  ),
+  hover: (
+    bg: $button-hover-color,
+    text: $white-color,
+    border: $button-hover-color
+  ),
+  active: (
+    bg: $button-active-color,
+    text: $white-color,
+    border: $button-active-color
+  ),
+  disable: (
+    bg: $border-color,
+    text: $white-color,
+    border: $border-color
+  )
+) !default;
+
+$warning-button-colors: map-merge($default-button-colors, (
+  normal: (
+    bg: $white-color,
+    text: $button-warn-color,
+    border: $button-warn-color
+  ),
+  hover: (
+    bg: $button-warn-color,
+    text: $white-color,
+    border: $button-warn-color
+  ),
+  active: (
+    bg: $button-warn-active-color,
+    text: $white-color,
+    border: $button-warn-active-color
+  )
+)) !default;
+
+$icon-button-colors: map-merge($default-button-colors, (
+  normal: (
+    bg: $white-color,
+    text: $lighter-grey-color,
+    border: $border-color
+  ),
+  hover: (
+    bg: $white-color,
+    text: $lighter-grey-color,
+    border: $link-color
+  ),
+  active: (
+    bg: $white-color,
+    text: $lighter-grey-color,
+    border: $link-color
+  )
+)) !default;

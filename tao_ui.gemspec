@@ -18,12 +18,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{lib,vendor,config}/**/*", "LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "tao_on_rails", "~> 0.10.0"
-  s.add_dependency "autoprefixer-rails", "~> 7.1.1"
+  # s.add_dependency "tao_on_rails", "~> 1.0.0"
 
   s.add_development_dependency "sqlite3"
-  s.add_development_dependency "nokogiri", '~> 1.8.0'
-  s.add_development_dependency "blade", "~> 0.7.0"
-  s.add_development_dependency "blade-sauce_labs_plugin", "~> 0.7.1"
-  s.add_development_dependency "selenium-webdriver", '~> 3.2.0'
 end
