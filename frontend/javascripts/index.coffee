@@ -7,11 +7,12 @@ import Tooltip from './tooltip'
 import Dialog from './dialog'
 import Sortable from './sortable'
 import Tree from './tree'
+import Tabs from './tabs'
 
 export default {
-  Table, SlideBox, Popover, Tooltip, Dialog, Sortable, Tree, Icons
+  Table, SlideBox, Popover, Tooltip, Dialog, Sortable, Tree, Icons, Tabs
 }
 
 export {
-  Table, SlideBox, Popover, Tooltip, Dialog, Sortable, Tree, Icons
+  Table, SlideBox, Popover, Tooltip, Dialog, Sortable, Tree, Icons, Tabs
 }

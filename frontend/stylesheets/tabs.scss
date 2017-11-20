@@ -1,22 +1,73 @@
 
 .tabs {
+  height: 60px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 
-  .tab {
-    padding: 0.5rem 0.5rem 1rem 0.5rem;
-    font-size: 1rem;
-    color: $lightest-grey-color;
+  .tab{
+    display: flex;
+    height: 100%;
+    align-items: center;
     border-bottom: 3px solid $white-color;
-    margin: 0 1.5rem 0 0;
+    padding: 3px 0.25em 0;
+    color: $grey-color;
+    margin: 0 20px;
 
     &:hover {
-      color: $grey-color;
+      color: $ui-color;
     }
 
     &.active {
+      color: $ui-color;
       border-color: $ui-color;
-      color: $grey-color;
+      font-weight: 500;
+    }
+  }
+}
+
+.vertical-tabs {
+  width: 200px;
+
+  .tab {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $light-border-color;
+    color: $grey-color;
+
+    &:before {
+      content: '';
+      display: block;
+      height: 20px;
+      width: 3px;
+      background-color: $white-color;
+      margin-right: 1.25em;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      color: $ui-color;
+    }
+
+    &.active {
+      color: $ui-color;
+
+      &:before {
+        background-color: $ui-color;
+      }
+    }
+  }
+}
+
+.tao-tabs {
+  .panels > .panel {
+    display: none;
+
+    &.active {
+      display: block;
     }
   }
 }
