@@ -16,7 +16,7 @@ class Tabs extends Component
   _activateTab: ($tab) ->
     $panel = @jq.find($tab.attr('href'))
     @_toggleItemActive $tab, '.tab'
-    @_toggleItemActive $panel, '.panel'
+    @_toggleItemActive $panel, '.tab-panel'
 
   _toggleItemActive: ($item, itemSelector = '*') ->
     $item.addClass('active')

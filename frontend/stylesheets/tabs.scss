@@ -20,7 +20,6 @@
     &.active {
       color: $ui-color;
       border-color: $ui-color;
-      font-weight: 500;
     }
   }
 }
@@ -63,7 +62,7 @@
 }
 
 .tao-tabs {
-  .panels > .panel {
+  .tab-panels > .tab-panel {
     display: none;
 
     &.active {
