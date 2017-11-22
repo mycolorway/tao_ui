@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@mycolorway/tao@mycolorway/tao_on_rails#v1.0.0":
+"@mycolorway/tao@mycolorway/tao_on_rails":
   version "1.0.0-alpha.1"
-  resolved "https://codeload.github.com/mycolorway/tao_on_rails/tar.gz/9d9a85c6a10ccf18c7bd3336063bffc9d89664ee"
+  resolved "https://codeload.github.com/mycolorway/tao_on_rails/tar.gz/4548a7bff5e48bca2274ba3b71cdd04814c6bf89"
   dependencies:
     "@webcomponents/custom-elements" "^1.0.4"
 

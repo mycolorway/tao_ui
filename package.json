@@ -29,7 +29,7 @@
     "normalize.css": "^7.0.0"
   },
   "devDependencies": {
-    "@mycolorway/tao": "mycolorway/tao_on_rails#v1.0.0",
+    "@mycolorway/tao": "mycolorway/tao_on_rails",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -52,6 +52,6 @@
     "webpack": "^3.8.1"
   },
   "peerDependencies": {
-    "@mycolorway/tao": "mycolorway/tao_on_rails#v1.0.0"
+    "@mycolorway/tao": "mycolorway/tao_on_rails"
   }
 }
