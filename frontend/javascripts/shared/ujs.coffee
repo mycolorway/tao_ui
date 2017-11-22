@@ -29,9 +29,3 @@ prependLoadingIcon = (element) ->
   if $element.is('button') && $element.data('loading')
     $element.addClass('text-with-icon')
       .prepend createIcon('loading', class: 'spin')
-
-# Make sure that every Ajax request sends the CSRF token
-$.ajaxPrefilter (options, originalOptions, xhr) ->
-  if !options.crossDomain
-    token = $('meta[name=csrf-token]').attr('content')
-    xhr.setRequestHeader('X-CSRF-Token', token) if token
