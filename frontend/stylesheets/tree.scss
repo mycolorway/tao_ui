@@ -46,6 +46,12 @@
       bottom: 50%;
     }
 
+    @for $i from 0 through 9 {
+      &:last-child[depth='#{$i}'] > .tao-tree-list .tao-tree-item-padding .padding-item:nth-child(#{$i + 1}):before {
+        display: none;
+      }
+    }
+
     & > .tao-tree-item-content {
       display: flex;
       align-items: center;
@@ -60,7 +66,7 @@
         transition: transform 200ms;
         border: 1px solid $lightest-grey-color;
         border-radius: 50%;
-        margin: 0 0.75rem 0 -1.75rem;
+        margin: 0 1rem 0 -1.75rem;
         cursor: pointer;
         visibility: hidden;
         position: relative;
