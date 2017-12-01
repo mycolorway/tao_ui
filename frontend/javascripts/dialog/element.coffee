@@ -39,7 +39,7 @@ class DialogElement extends Component
 
   _bind: ->
     @on 'click', (e) =>
-      @active = false if e.target == @
+      @active = false if @withCloseButton && e.target == @
       null
 
     @on 'click', ".tao-dialog-wrapper > .link-close, #{@closeSelector}", =>
