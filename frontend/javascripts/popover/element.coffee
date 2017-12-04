@@ -68,20 +68,23 @@ class PopoverElement extends Component
     return false if @disabled
 
     if active
+      @namespacedTrigger 'beforeShow'
       @jq.show()
       @refresh()
       @reflow()
     else
+      @namespacedTrigger 'beforeHide'
       reset = =>
         if @autoDestroy
           @remove()
         else
           @jq.hide()
+        @namespacedTrigger 'afterHide'
 
       if @jq.is(':visible')
         @on 'transitionend', (e) =>
-          return unless e.target == @
           @off 'transitionend'
+          return unless e.target == @
           reset()
       else
         reset()
@@ -137,7 +140,7 @@ class PopoverElement extends Component
     @
 
   resetAttributes: ->
-    @active = false
+    @active = false if @active
     @triggerEl?.off '.tao-popover'
     @target = null
     @triggerEl = null

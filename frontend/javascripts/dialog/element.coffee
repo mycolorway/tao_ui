@@ -52,21 +52,24 @@ class DialogElement extends Component
 
   _beforeActiveChanged: (active) ->
     if active
+      @namespacedTrigger 'beforeShow'
       @jq.find('.tao-dialog-content').css
         maxHeight: $(window).height() - 40
       @jq.show()
       @reflow()
     else
+      @namespacedTrigger 'beforeHide'
       reset = =>
         if @autoDestroy
           @remove()
         else
           @jq.hide()
+        @namespacedTrigger 'afterHide'
 
       if @jq.is(':visible')
         @on 'transitionend', (e) =>
-          return unless $(e.target).is('.tao-dialog-wrapper')
           @off 'transitionend'
+          return unless $(e.target).is('.tao-dialog-wrapper')
           reset()
       else
         reset()

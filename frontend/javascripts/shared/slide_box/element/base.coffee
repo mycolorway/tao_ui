@@ -66,8 +66,8 @@ export default class SlideBoxElementBase extends Component
       # in case the slide box is hidden too fast
       if @jq.is(':visible')
         @on 'transitionend', (e) =>
-          return unless $(e.target).is('.slide-box-wrapper')
           @off 'transitionend'
+          return unless $(e.target).is('.slide-box-wrapper')
           reset()
       else
         reset()
