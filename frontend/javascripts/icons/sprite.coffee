@@ -23,6 +23,6 @@ Application.initializer 'icons', (app) ->
       $(document.body).prepend(sprite.node)
 
   app.on 'before-page-cache', (e, page) ->
-    sprite.unmount()
+    sprite.unmount() if sprite.node.parentNode
 
 export default sprite
