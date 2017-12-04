@@ -61,8 +61,8 @@ class Tao.Dialog.Element extends TaoComponent
 
       if @jq.is(':visible')
         @on 'transitionend', (e) =>
-          return unless $(e.target).is('.tao-dialog-wrapper')
           @off 'transitionend'
+          return unless $(e.target).is('.tao-dialog-wrapper')
           reset()
       else
         reset()

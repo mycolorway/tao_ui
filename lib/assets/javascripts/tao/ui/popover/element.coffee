@@ -79,8 +79,8 @@ class Tao.Popover.Element extends TaoComponent
 
       if @jq.is(':visible')
         @on 'transitionend', (e) =>
-          return unless e.target == @
           @off 'transitionend'
+          return unless e.target == @
           reset()
       else
         reset()
