@@ -67,15 +67,18 @@ class Tao.Popover.Element extends TaoComponent
     return false if @disabled
 
     if active
+      @namespacedTrigger 'beforeShow'
       @jq.show()
       @refresh()
       @reflow()
     else
+      @namespacedTrigger 'beforeHide'
       reset = =>
         if @autoDestroy
           @remove()
         else
           @jq.hide()
+        @namespacedTrigger 'afterHide'
 
       if @jq.is(':visible')
         @on 'transitionend', (e) =>
