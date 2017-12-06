@@ -15,6 +15,8 @@ class DialogElement extends Component
   @attribute 'triggerSelector', 'triggerTraversal', 'size'
 
   _connected: ->
+    @wrapper = @jq.find('.tao-dialog-wrapper')
+    @content = @jq.find('.tao-dialog-content')
     @triggerEl = if @triggerTraversal && @triggerSelector
       @jq[@triggerTraversal]?(@triggerSelector)
     else if @triggerSelector
@@ -35,7 +37,7 @@ class DialogElement extends Component
 
   _initSize: ->
     if _.isNumber(size = parseFloat @size)
-      @jq.find('.tao-dialog-wrapper').width size
+      @wrapper.width size
 
   _bind: ->
     @on 'click', (e) =>
@@ -46,34 +48,42 @@ class DialogElement extends Component
       @active = false
       null
 
+    @on 'transitionend', @_afterTransition.bind(@)
+
     if @triggerEl && @triggerEl.length > 0
       @triggerEl.on "click.tao-slide-box-#{@taoId}", (e) =>
         @active = true
 
   _beforeActiveChanged: (active) ->
     if active
-      @namespacedTrigger 'beforeShow'
-      @jq.find('.tao-dialog-content').css
-        maxHeight: $(window).height() - 40
-      @jq.show()
-      @reflow()
+      @_prepareShowTransition()
     else
-      @namespacedTrigger 'beforeHide'
-      reset = =>
-        if @autoDestroy
-          @remove()
-        else
-          @jq.hide()
-        @namespacedTrigger 'afterHide'
+      @_prepareHideTransition()
+    null
 
-      if @jq.is(':visible')
-        @on 'transitionend', (e) =>
-          @off 'transitionend'
-          return unless $(e.target).is('.tao-dialog-wrapper')
-          reset()
-      else
-        reset()
+  _prepareShowTransition: ->
+    @namespacedTrigger 'beforeShow'
+    @content.css
+      maxHeight: $(window).height() - 40
+    @jq.show()
+    @reflow()
+    @_duringTransition = 'show'
 
+  _prepareHideTransition: ->
+    @namespacedTrigger 'beforeHide'
+    if @jq.is(':visible') && @wrapper.css('opacity') * 1 > 0
+      @_duringTransition = 'hide'
+    else
+      @reset()
+
+  _afterTransition: (e) ->
+    return unless $(e.target).is(@wrapper) && e.originalEvent.propertyName == 'opacity'
+    if @_duringTransition == 'show'
+      @namespacedTrigger 'afterShow'
+    else if @_duringTransition == 'hide'
+      @reset()
+      @namespacedTrigger 'afterHide'
+    @_duringTransition = false
     null
 
   _activeChanged: ->
@@ -85,8 +95,7 @@ class DialogElement extends Component
       @namespacedTrigger 'hide'
 
   setContent: (content) ->
-    @jq.find('.tao-dialog-content').empty()
-      .append content
+    @content.empty().append content
     @
 
   remove: ->
@@ -95,11 +104,15 @@ class DialogElement extends Component
     @namespacedTrigger 'remove'
     @
 
-  beforeCache: ->
+  reset: ->
     if @autoDestroy
       @remove()
     else
       @jq.hide()
-      active = false
+    @
+
+  beforeCache: ->
+    @reset()
+    active = false
 
 export default DialogElement.register()

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mycolorway/tao_on_rails.git
-  revision: 1471ac7a385a81cdbc70a561c9a153108c234977
+  revision: a456ce1a4b2ef7d26633ce0f1d11317339e0ef0a
   branch: master
   specs:
     tao_on_rails (1.0.0)
@@ -54,7 +54,7 @@ GEM
     arel (8.0.0)
     builder (3.2.3)
     concurrent-ruby (1.0.5)
-    crass (1.0.2)
+    crass (1.0.3)
     erubi (1.7.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -66,14 +66,14 @@ GEM
     mail (2.7.0)
       mini_mime (>= 0.1.1)
     method_source (0.9.0)
-    mini_mime (0.1.4)
+    mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     rack (2.0.3)
-    rack-test (0.7.0)
+    rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rails (5.1.4)
       actioncable (= 5.1.4)
@@ -98,7 +98,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (12.2.1)
+    rake (12.3.0)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -113,7 +113,7 @@ GEM
       thread_safe (~> 0.1)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.2)
+    websocket-extensions (0.1.3)
 
 PLATFORMS
   ruby
@@ -124,4 +124,4 @@ DEPENDENCIES
   tao_ui!
 
 BUNDLED WITH
-   1.15.4
+   1.16.0

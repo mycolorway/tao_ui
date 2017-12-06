@@ -16,6 +16,7 @@ export default class SlideBoxElementBase extends Component
   @attribute 'size'
 
   _connected: ->
+    @wrapper = $('.slide-box-wrapper')
     @triggerEl = if @triggerTraversal && @triggerSelector
       @jq[@triggerTraversal]?(@triggerSelector)
     else if @triggerSelector
@@ -36,7 +37,7 @@ export default class SlideBoxElementBase extends Component
       "#{$(window)[sizeProperty]() + size}px"
     else
       @size
-    @jq.find('.slide-box-wrapper').css sizeProperty, size
+    @wrapper.css sizeProperty, size
 
   _bind: ->
     @on 'click', (e) =>
@@ -45,32 +46,40 @@ export default class SlideBoxElementBase extends Component
     @on 'click', '.slide-box-wrapper > .link-close', =>
       @active = false
 
+    @on 'transitionend', @_afterTransition.bind(@)
+
     if @triggerEl && @triggerEl.length > 0
       @triggerEl.on "click.tao-slide-box-#{@taoId}", (e) =>
         @active = true
 
   _beforeActiveChanged: (active) ->
     if active
-      @namespacedTrigger 'beforeShow'
-      @jq.show()
-      @reflow()
+      @_prepareShowTransition()
     else
-      @namespacedTrigger 'beforeHide'
-      reset = =>
-        if @autoDestroy
-          @remove()
-        else
-          @jq.hide()
-        @namespacedTrigger 'afterHide'
+      @_prepareHideTransition()
+    null
 
-      # in case the slide box is hidden too fast
-      if @jq.is(':visible')
-        @on 'transitionend', (e) =>
-          @off 'transitionend'
-          return unless $(e.target).is('.slide-box-wrapper')
-          reset()
-      else
-        reset()
+  _prepareShowTransition: ->
+    @namespacedTrigger 'beforeShow'
+    @jq.show()
+    @reflow()
+    @_duringTransition = 'show'
+
+  _prepareHideTransition: ->
+    @namespacedTrigger 'beforeHide'
+    if @jq.is(':visible') && @wrapper.css('opacity') * 1 > 0
+      @_duringTransition = 'hide'
+    else
+      @reset()
+
+  _afterTransition: (e) ->
+    return unless $(e.target).is(@wrapper) && e.originalEvent.propertyName == 'opacity'
+    if @_duringTransition == 'show'
+      @namespacedTrigger 'afterShow'
+    else if @_duringTransition == 'hide'
+      @reset()
+      @namespacedTrigger 'afterHide'
+    @_duringTransition = false
     null
 
   _activeChanged: ->
@@ -101,8 +110,12 @@ export default class SlideBoxElementBase extends Component
     @
 
   beforeCache: ->
+    @reset()
+    active = false
+
+  reset: ->
     if @autoDestroy
       @remove()
     else
       @jq.hide()
-      active = false
+    @
