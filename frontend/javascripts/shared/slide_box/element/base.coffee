@@ -16,7 +16,7 @@ export default class SlideBoxElementBase extends Component
   @attribute 'size'
 
   _connected: ->
-    @wrapper = $('.slide-box-wrapper')
+    @wrapper = @jq.find('.slide-box-wrapper')
     @triggerEl = if @triggerTraversal && @triggerSelector
       @jq[@triggerTraversal]?(@triggerSelector)
     else if @triggerSelector

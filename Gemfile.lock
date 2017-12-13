@@ -1,10 +1,10 @@
 GIT
   remote: https://github.com/mycolorway/tao_on_rails.git
-  revision: a456ce1a4b2ef7d26633ce0f1d11317339e0ef0a
+  revision: 109ec8beb6f65d3805b81d517d5694e3473a4dbf
   branch: master
   specs:
     tao_on_rails (1.0.0)
-      rails (>= 5.0.0, < 5.2)
+      rails (>= 5.0.0, < 5.3)
 
 PATH
   remote: .
