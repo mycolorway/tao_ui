@@ -17,7 +17,7 @@ class Tao.Popover.Element extends TaoComponent
 
   @attribute 'boundarySelector', 'direction', 'size'
 
-  @attribute 'offset', type: 'number', default: 0
+  @attribute 'offset', type: 'number', default: 5
 
   @attribute 'autoHide', 'autoDestroy', 'withArrow', 'autoActivate', type: 'boolean'
 
@@ -25,6 +25,8 @@ class Tao.Popover.Element extends TaoComponent
     @_initTarget()
     @_initTrigger()
     @_initSize()
+
+    @on 'transitionend', @_afterTransition.bind(@)
 
     if @autoActivate
       @reflow()
@@ -57,6 +59,12 @@ class Tao.Popover.Element extends TaoComponent
         @active = true
         null
       .on 'mouseleave.tao-popover', (e) =>
+        return if @jq.is(e.relatedTarget) || @jq.has(e.relatedTarget).length
+        @active = false
+        null
+
+      @jq.on 'mouseleave', (e) =>
+        return if @triggerEl.is(e.relatedTarget) || @triggerEl.has(e.relatedTarget).length
         @active = false
         null
 
@@ -67,26 +75,34 @@ class Tao.Popover.Element extends TaoComponent
     return false if @disabled
 
     if active
-      @namespacedTrigger 'beforeShow'
-      @jq.show()
-      @refresh()
-      @reflow()
+      @_prepareShowTransition()
     else
-      @namespacedTrigger 'beforeHide'
-      reset = =>
-        if @autoDestroy
-          @remove()
-        else
-          @jq.hide()
-        @namespacedTrigger 'afterHide'
+      @_prepareHideTransition()
 
-      if @jq.is(':visible')
-        @on 'transitionend', (e) =>
-          @off 'transitionend'
-          return unless e.target == @
-          reset()
-      else
-        reset()
+    null
+
+  _prepareShowTransition: ->
+    @namespacedTrigger 'beforeShow'
+    @jq.show()
+    @refresh()
+    @reflow()
+    @_duringTransition = 'show'
+
+  _prepareHideTransition: ->
+    @namespacedTrigger 'beforeHide'
+    if @jq.is(':visible') && @jq.css('opacity') * 1 > 0
+      @_duringTransition = 'hide'
+    else
+      @reset()
+
+  _afterTransition: (e) ->
+    return unless $(e.target).is(@) && e.originalEvent.propertyName == 'opacity'
+    if @_duringTransition == 'show'
+      @namespacedTrigger 'afterShow'
+    else if @_duringTransition == 'hide'
+      @reset()
+      @namespacedTrigger 'afterHide'
+    @_duringTransition = false
     null
 
   _activeChanged: ->
@@ -139,7 +155,7 @@ class Tao.Popover.Element extends TaoComponent
     @
 
   resetAttributes: ->
-    @active = false
+    @active = false if @active
     @triggerEl?.off '.tao-popover'
     @target = null
     @triggerEl = null
@@ -158,17 +174,21 @@ class Tao.Popover.Element extends TaoComponent
     @
 
   beforeCache: ->
-    if @autoDestroy
-      @remove()
-    else
-      @jq.hide()
-      @active = false
+    @reset()
+    @active = false
 
   remove: ->
     @namespacedTrigger 'beforeRemove'
     @target.removeClass 'tao-popover-active'
     @jq.remove()
     @namespacedTrigger 'remove'
+    @
+
+  reset: ->
+    if @autoDestroy
+      @remove()
+    else
+      @jq.hide()
     @
 
   _disconnected: ->

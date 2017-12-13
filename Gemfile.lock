@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tao_ui (0.3.3)
+    tao_ui (0.3.4)
       autoprefixer-rails (~> 7.1.1)
       tao_on_rails (~> 0.10.0)
 

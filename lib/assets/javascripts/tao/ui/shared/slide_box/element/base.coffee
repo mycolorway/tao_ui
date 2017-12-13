@@ -13,6 +13,7 @@ class Tao.SlideBox.ElementBase extends TaoComponent
   @attribute 'size'
 
   _connected: ->
+    @wrapper = @jq.find('.slide-box-wrapper')
     @triggerEl = if @triggerTraversal && @triggerSelector
       @jq[@triggerTraversal]?(@triggerSelector)
     else if @triggerSelector
@@ -33,7 +34,7 @@ class Tao.SlideBox.ElementBase extends TaoComponent
       "#{$(window)[sizeProperty]() + size}px"
     else
       @size
-    @jq.find('.slide-box-wrapper').css sizeProperty, size
+    @wrapper.css sizeProperty, size
 
   _bind: ->
     @on 'click', (e) =>
@@ -42,42 +43,50 @@ class Tao.SlideBox.ElementBase extends TaoComponent
     @on 'click', '.slide-box-wrapper > .link-close', =>
       @active = false
 
+    @on 'transitionend', @_afterTransition.bind(@)
+
     if @triggerEl && @triggerEl.length > 0
       @triggerEl.on "click.tao-slide-box-#{@taoId}", (e) =>
         @active = true
 
   _beforeActiveChanged: (active) ->
     if active
-      @namespacedTrigger 'beforeShow'
-      @jq.show()
-      @reflow()
+      @_prepareShowTransition()
     else
-      @namespacedTrigger 'beforeHide'
-      reset = =>
-        if @autoDestroy
-          @remove()
-        else
-          @jq.hide()
-        @namespacedTrigger 'afterHide'
+      @_prepareHideTransition()
+    null
 
-      # in case the slide box is hidden too fast
-      if @jq.is(':visible')
-        @on 'transitionend', (e) =>
-          @off 'transitionend'
-          return unless $(e.target).is('.slide-box-wrapper')
-          reset()
-      else
-        reset()
+  _prepareShowTransition: ->
+    @namespacedTrigger 'beforeShow'
+    @jq.show()
+    @reflow()
+    @_duringTransition = 'show'
+
+  _prepareHideTransition: ->
+    @namespacedTrigger 'beforeHide'
+    if @jq.is(':visible') && @wrapper.css('opacity') * 1 > 0
+      @_duringTransition = 'hide'
+    else
+      @reset()
+
+  _afterTransition: (e) ->
+    return unless $(e.target).is(@wrapper) && e.originalEvent.propertyName == 'opacity'
+    if @_duringTransition == 'show'
+      @namespacedTrigger 'afterShow'
+    else if @_duringTransition == 'hide'
+      @reset()
+      @namespacedTrigger 'afterHide'
+    @_duringTransition = false
     null
 
   _activeChanged: ->
     @_unbindAutoHideEvent() if @autoHide
     if @active
       @_bindAutoHideEvent() if @autoHide
-      $('body, html').addClass('slide-box-active')
+      $('body').addClass('slide-box-active')
       @namespacedTrigger 'show'
     else
-      $('body, html').removeClass('slide-box-active')
+      $('body').removeClass('slide-box-active')
       @namespacedTrigger 'hide'
 
   _autoHideEvent: ''
@@ -98,8 +107,12 @@ class Tao.SlideBox.ElementBase extends TaoComponent
     @
 
   beforeCache: ->
+    @reset()
+    active = false
+
+  reset: ->
     if @autoDestroy
       @remove()
     else
       @jq.hide()
-      active = false
+    @
