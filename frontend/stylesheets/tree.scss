@@ -98,11 +98,6 @@
       overflow: hidden;
 
       & > .tao-tree-loading {
-        display: flex;
-        align-items: center;
-        height: $tree-item-height;
-        line-height: $tree-item-height;
-        font-size: $tree-item-font-size;
         color: $lighter-grey-color;
 
         .icon {

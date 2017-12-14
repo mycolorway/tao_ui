@@ -103,8 +103,10 @@ module TaoUi
 
         def render_children_placeholder
           view.content_tag 'div', class: 'tao-tree-list' do
-            view.content_tag 'div', class: 'tao-tree-loading' do
-              render_padding(depth + 1) + view.tao_icon(:loading, class: 'spin') + t(:loading)
+            view.content_tag 'div', class: 'tao-tree-loading tao-tree-item' do
+              view.content_tag 'div', class: 'tao-tree-item-content' do
+                render_padding(depth + 1) + view.tao_icon(:loading, class: 'spin') + t(:loading)
+              end
             end
           end
         end
