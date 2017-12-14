@@ -60,17 +60,17 @@ export default class SlideBoxElementBase extends Component
     null
 
   _prepareShowTransition: ->
-    @namespacedTrigger 'beforeShow'
     @jq.show()
     @reflow()
     @_duringTransition = 'show'
+    @namespacedTrigger 'beforeShow'
 
   _prepareHideTransition: ->
-    @namespacedTrigger 'beforeHide'
     if @jq.is(':visible') && @wrapper.css('opacity') * 1 > 0
       @_duringTransition = 'hide'
     else
       @reset()
+    @namespacedTrigger 'beforeHide'
 
   _afterTransition: (e) ->
     return unless $(e.target).is(@wrapper) && e.originalEvent.propertyName == 'opacity'
