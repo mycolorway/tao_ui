@@ -27,9 +27,17 @@ class TreeElement extends Component
       @namespacedTrigger 'selectedChange', [@selectedItems]
       null
 
+    @on 'tao-tree-item:listUpdate', '.tao-tree-item', (e) =>
+      item = e.currentTarget
+      return unless item == e.target
+      @_refreshDescendantItems(item) if @associatedSelect
+
   _refreshAssociatedItems: (item) ->
-    item.jq.find('.tao-tree-item').prop('selected', item.selected)
+    @_refreshDescendantItems(item)
     @_refreshAncestorItems(item)
+
+  _refreshDescendantItems: (item) ->
+    item.jq.find('.tao-tree-item').prop('selected', item.selected)
 
   _refreshAncestorItems: (item) ->
     $parentItem = $(item).parent().closest('.tao-tree-item', @)
@@ -50,7 +58,7 @@ class TreeElement extends Component
 
   _getAssociatedSelectedItems: ($list = @jq.find('> .tao-tree-list')) ->
     selectedItems = []
-    $list.find('> .tao-tree-item').each (i, item) =>
+    $list.find('> .tao-tree-item:not(.tao-tree-loading)').each (i, item) =>
       if item.selected
         selectedItems.push item
       else if ($childList = item.jq.find('> .tao-tree-list')).length > 0

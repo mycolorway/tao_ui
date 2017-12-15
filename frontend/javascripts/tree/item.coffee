@@ -86,7 +86,7 @@ class ItemElement extends Component
         tree_item_id: @taoId
         depth: @depth
         selectable: @selectable || undefined
-        selected: @selected || undefined
+        # selected: @selected || undefined
       dataType: 'script'
 
   updateList: ($newList) ->
