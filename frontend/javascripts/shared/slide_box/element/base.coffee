@@ -60,7 +60,7 @@ export default class SlideBoxElementBase extends Component
     null
 
   _prepareShowTransition: ->
-    @jq.show()
+    @jq.css 'display', 'block'
     @reflow()
     @_duringTransition = 'show'
     @namespacedTrigger 'beforeShow'

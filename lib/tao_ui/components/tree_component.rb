@@ -8,7 +8,7 @@ module TaoUi
         super view,options
         @items = items
         @children_key = @options.delete(:children_key)
-        @selectable = @options[:selectable] || false
+        @selectable = @options.delete(:selectable)
         @remote = @options.delete(:remote)
         @expanded = @options.delete(:expanded)
       end

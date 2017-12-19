@@ -38,33 +38,33 @@
     transform: translate(0, -30%);
     transition: transform 300ms, opacity 300ms;
     opacity: 0;
+  }
 
-    .tao-dialog-content {
-      padding: 1rem 2rem;
+  .tao-dialog-content {
+    padding: 1rem 2rem;
 
-      h3:first-child,
-      .title:first-child {
-        margin-bottom: 2rem;
-      }
+    h3:first-child,
+    .title:first-child {
+      margin-bottom: 2rem;
     }
+  }
 
-    .tao-dialog-buttons,
-    .tao-dialog-content .buttons,
-    .tao-dialog-content .form-buttons {
-      margin-left: 0;
-      margin-bottom: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  .tao-dialog-buttons,
+  .tao-dialog-content .buttons,
+  .tao-dialog-content .form-buttons {
+    margin-left: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      .button, a {
-        margin: 0 0.75rem;
-      }
+    .button, a {
+      margin: 0 0.75rem;
     }
+  }
 
-    .tao-dialog-buttons {
-      margin: 1.5rem 0 0 0;
-    }
+  .tao-dialog-buttons {
+    margin: 1.5rem 0 0 0;
   }
 
   &.tao-confirm-dialog,
@@ -72,10 +72,10 @@
     .tao-dialog-wrapper {
       width: 32.5rem;
       padding: 1.5rem 2rem;
+    }
 
-      .tao-dialog-content {
-        padding: 0;
-      }
+    .tao-dialog-content {
+      padding: 0;
     }
   }
 

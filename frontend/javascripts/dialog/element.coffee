@@ -64,7 +64,7 @@ class DialogElement extends Component
   _prepareShowTransition: ->
     @content.css
       maxHeight: $(window).height() - 40
-    @jq.show()
+    @jq.css 'display', 'block'
     @reflow()
     @_duringTransition = 'show'
     @namespacedTrigger 'beforeShow'

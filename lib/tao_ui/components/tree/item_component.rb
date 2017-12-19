@@ -10,12 +10,12 @@ module TaoUi
           super view, options
           @item = item
           @children_key = @options.delete(:children_key)
-          @selectable = @options[:selectable] || false
           @depth = @options[:depth]
 
           init_remote
           init_children
           init_expanded
+          init_selectable
         end
 
         def render &block
@@ -51,20 +51,26 @@ module TaoUi
         end
 
         def init_remote
-          @remote = html_options.delete(:remote) || false
+          @remote = options.delete(:remote) || false
           @remote = @remote.call(item, depth) if @remote.respond_to?(:call)
           if @remote && @remote.is_a?(Hash)
-            html_options[:remote] = @remote.to_json
+            options[:remote] = @remote.to_json
           end
         end
 
         def init_expanded
           @expandable = !!remote || children.try(:any?)
-          html_options[:expandable] = @expandable ? '' : nil
+          options[:expandable] = @expandable
 
-          @expanded = (html_options.delete(:expanded) || false) && expandable && !remote
+          @expanded = (options.delete(:expanded) || false) && expandable && !remote
           @expanded = @expanded.call(item, depth) if @expanded.respond_to?(:call)
-          html_options[:expanded] = @expanded ? '' : nil
+          options[:expanded] = @expanded
+        end
+
+        def init_selectable
+          @selectable = @options.delete(:selectable) || false
+          @selectable = @selectable.call(item, depth) if @selectable.respond_to?(:call)
+          options[:selectable] = @selectable
         end
 
         def render_padding(size = depth)
@@ -95,7 +101,7 @@ module TaoUi
               selectable: selectable,
               depth: depth + 1,
               remote: options[:remote],
-              expanded: options[:expanded],
+              expanded: expanded,
               children_key: @children_key
             }, &block
           end

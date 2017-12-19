@@ -5,7 +5,7 @@ class TreeElement extends Component
 
   @tag 'tao-tree'
 
-  @attribute 'selectable', 'associatedSelect', type: 'boolean'
+  @attribute 'associatedSelect', type: 'boolean'
 
   @get 'selectedItems', ->
     if @associatedSelect

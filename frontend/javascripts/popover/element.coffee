@@ -83,7 +83,7 @@ class PopoverElement extends Component
     null
 
   _prepareShowTransition: ->
-    @jq.show()
+    @jq.css 'display', 'block'
     @refresh()
     @reflow()
     @_duringTransition = 'show'
