@@ -52,6 +52,6 @@
     "webpack": "^3.8.1"
   },
   "peerDependencies": {
-    "@mycolorway/tao": "^1.0.0"
+    "@mycolorway/tao": "mycolorway/tao_on_rails"
   }
 }
