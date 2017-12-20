@@ -53,9 +53,16 @@
   }
 
   &.button-icon {
-    min-width: 2.5em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: $button-padding-v;
     @include button-colors($icon-button-colors);
+
+    .icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 
   &.button-block {

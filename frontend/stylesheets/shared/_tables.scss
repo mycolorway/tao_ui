@@ -4,20 +4,20 @@ table.table {
   border-collapse: collapse;
 
   th {
+    height: $table-th-height;
     border-top: 1px solid $table-line-color;
     border-bottom: 1px solid $table-line-color;
     padding: $table-th-padding;
-    font-size: $font-size-xs;
+    font-size: $font-size-s;
     font-weight: normal;
-    line-height: 1.125;
     color: $lighter-grey-color;
     text-align: left;
   }
 
   td {
+    height: $table-td-height;
     border-bottom: 1px solid $table-line-color;
     padding: $table-td-padding;
-    line-height: 1.125;
     text-align: left;
   }
 
