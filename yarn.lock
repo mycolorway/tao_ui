@@ -4,13 +4,13 @@
 
 "@mycolorway/tao@mycolorway/tao_on_rails":
   version "1.0.0-alpha.1"
-  resolved "https://codeload.github.com/mycolorway/tao_on_rails/tar.gz/4548a7bff5e48bca2274ba3b71cdd04814c6bf89"
+  resolved "https://codeload.github.com/mycolorway/tao_on_rails/tar.gz/280ab531ce02aeccebc27e68d9540818d741fa8c"
   dependencies:
     "@webcomponents/custom-elements" "^1.0.4"
 
 "@webcomponents/custom-elements@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@webcomponents/custom-elements/-/custom-elements-1.0.4.tgz#f7de0103026f27863ecfabaf1d450b9c21714910"
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@webcomponents/custom-elements/-/custom-elements-1.0.6.tgz#79944e0d7dcb830063308df65560a6fd2bd20a9a"
 
 abbrev@1:
   version "1.1.1"

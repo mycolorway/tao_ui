@@ -36,7 +36,7 @@ describe 'Popover Element',
     popover.active = true
     expect(popover.active).to.be.true
     expect(popover.hasAttribute('active')).to.be.ok
-    expect(popover.direction).to.equal 'right-middle'
+    expect(popover.direction).to.equal 'bottom-center'
 
   it 'can be moved', (done) ->
     $container = $('''
