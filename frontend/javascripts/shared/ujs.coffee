@@ -1,28 +1,27 @@
 import $ from 'jquery'
-import Rails from 'rails-ujs'
 import createIcon from '../icons/create'
 
 
 # hack ujs for adding loading icon on disabled buttons/links
-originDisableElement = Rails.disableElement
-Rails.disableElement = (e) ->
-  originDisableElement e
-  element = if e instanceof Event then e.target else e
-  if Rails.matches(element, Rails.formSubmitSelector)
-    Rails.formElements(element, Rails.formDisableSelector).forEach (el) ->
-      prependLoadingIcon el
-  else
-    prependLoadingIcon element
+originDisableElement = $.rails.disableElement
+$.rails.disableElement = (element) ->
+  originDisableElement element
+  prependLoadingIcon element
 
-originEnableElement = Rails.enableElement
-Rails.enableElement = (e) ->
-  originEnableElement e
-  element = if e instanceof Event then e.target else e
-  if Rails.matches(element, Rails.formSubmitSelector)
-    Rails.formElements(element, Rails.formDisableSelector).forEach (el) ->
-      $(el).removeClass 'text-with-icon'
-  else
-    $(el).removeClass 'text-with-icon'
+originDisableFormElement = $.rails.disableFormElement
+$.rails.disableFormElement = (element) ->
+  originDisableFormElement element
+  prependLoadingIcon element
+
+originEnableElement = $.rails.enableElement
+$.rails.enableElement = (element) ->
+  originEnableElement element
+  $(element).removeClass 'text-with-icon'
+
+originEnableFormElement = $.rails.enableFormElement
+$.rails.enableFormElement = (element) ->
+  originEnableFormElement element
+  $(element).removeClass 'text-with-icon'
 
 prependLoadingIcon = (element) ->
   $element = $ element
