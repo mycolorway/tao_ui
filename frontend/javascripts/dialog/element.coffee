@@ -113,6 +113,7 @@ class DialogElement extends Component
 
   beforeCache: ->
     @reset()
-    active = false
+    @active = false
+    null
 
 export default DialogElement.register()

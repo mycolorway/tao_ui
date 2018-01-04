@@ -111,7 +111,8 @@ export default class SlideBoxElementBase extends Component
 
   beforeCache: ->
     @reset()
-    active = false
+    @active = false
+    null
 
   reset: ->
     if @autoDestroy

@@ -177,6 +177,7 @@ class PopoverElement extends Component
   beforeCache: ->
     @reset()
     @active = false
+    null
 
   remove: ->
     @namespacedTrigger 'beforeRemove'

@@ -42,6 +42,8 @@
 
   .tao-dialog-content {
     padding: 1rem 2rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
 
     h3:first-child,
     .title:first-child {
