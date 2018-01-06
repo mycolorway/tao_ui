@@ -12,5 +12,3 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
-
-gem 'tao_on_rails', git: 'https://github.com/mycolorway/tao_on_rails.git', branch: :master

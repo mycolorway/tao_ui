@@ -18,14 +18,14 @@ module TaoUi
           init_selectable
         end
 
-        def render &block
+        def render(&block)
           view.content_tag tag_name, html_options do
             content = view.content_tag 'div', class: 'tao-tree-item-content' do
               render_padding + render_icon +
                 render_checkbox + view.capture(item, self, &block)
             end
 
-            children = render_children &block
+            children = render_children(&block)
             content + children
           end
         end
@@ -93,7 +93,7 @@ module TaoUi
           end
         end
 
-        def render_children &block
+        def render_children(&block)
           if remote
             render_children_placeholder
           else
