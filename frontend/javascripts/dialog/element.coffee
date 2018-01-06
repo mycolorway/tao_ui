@@ -62,9 +62,10 @@ class DialogElement extends Component
     null
 
   _prepareShowTransition: ->
-    @content.css
-      maxHeight: $(window).height() - 40
+    maxHeight = $(window).height() - 40
+    @content.css(maxHeight: maxHeight)
     @jq.css 'display', 'block'
+    @content.toggleClass('scrollable', @content[0].scrollHeight > maxHeight)
     @reflow()
     @_duringTransition = 'show'
     @namespacedTrigger 'beforeShow'
