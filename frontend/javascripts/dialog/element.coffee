@@ -8,7 +8,7 @@ class DialogElement extends Component
 
   @attribute 'active', type: 'boolean', observe: true
 
-  @attribute 'modal', 'withCloseButton', 'autoDestroy', 'autoActivate', type: 'boolean'
+  @attribute 'modal', 'withCloseButton', 'autoDestroy', 'autoActivate', 'scrollable', type: 'boolean'
 
   @attribute 'closeSelector', default: '.remove-dialog'
 
@@ -62,10 +62,9 @@ class DialogElement extends Component
     null
 
   _prepareShowTransition: ->
-    maxHeight = $(window).height() - 40
-    @content.css(maxHeight: maxHeight)
+    @content.css(maxHeight: $(window).height() - 40)
     @jq.css 'display', 'block'
-    @content.toggleClass('scrollable', @content[0].scrollHeight > maxHeight)
+    @checkScrollable()
     @reflow()
     @_duringTransition = 'show'
     @namespacedTrigger 'beforeShow'
@@ -97,7 +96,11 @@ class DialogElement extends Component
 
   setContent: (content) ->
     @content.empty().append content
+    @checkScrollable()
     @
+
+  checkScrollable: ->
+    @scrollable = !(@content[0].scrollHeight == @content[0].clientHeight)
 
   remove: ->
     @namespacedTrigger 'beforeRemove'

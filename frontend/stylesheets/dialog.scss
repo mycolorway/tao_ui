@@ -27,6 +27,11 @@
     opacity: 1;
   }
 
+  &[scrollable] .tao-dialog-content {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
   .tao-dialog-wrapper {
     position: relative;
     width: 37.5rem;
@@ -42,11 +47,6 @@
 
   .tao-dialog-content {
     padding: 1rem 2rem;
-
-    &.scrollable {
-      overflow-y: auto;
-      overscroll-behavior: contain;
-    }
 
     h3:first-child,
     .title:first-child {
