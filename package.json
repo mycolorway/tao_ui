@@ -1,6 +1,6 @@
 {
   "name": "@mycolorway/tao_ui",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "UI library based on tao",
   "main": "frontend/javascripts/index.coffee",
   "files": [
