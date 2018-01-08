@@ -10,12 +10,19 @@ class SortableElement extends Component
 
   @attribute 'itemSelector', default: '[draggable="true"]'
 
+  @attribute 'itemHandleSelector'
+
   @attribute 'axis', default: 'y'
 
   _connected: ->
-    @on 'dragstart', @itemSelector, (e) =>
+    handleSelector = if @itemHandleSelector
+      "#{@itemSelector} #{@itemHandleSelector}"
+    else
+      @itemSelector
+
+    @on 'dragstart', handleSelector, (e) =>
       e.stopPropagation()
-      $item = $ e.currentTarget
+      $item = $(e.currentTarget).closest(@itemSelector)
       itemRect = $item.get(0).getBoundingClientRect()
       @_startDragging $item
 
