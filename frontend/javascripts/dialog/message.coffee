@@ -12,8 +12,8 @@ class MessageDialogElement extends DialogElement
     super()
 
     @on 'click', '.button-confirm', (e) =>
-      @active = false
       @namespacedTrigger 'confirm'
+      @active = false
       Turbolinks.visit(@confirmUrl) if @confirmUrl
       null
 
