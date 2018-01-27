@@ -82,8 +82,9 @@ class SortableElement extends Component
     nearestItem = null
 
     dimensions.forEach (item) =>
+      return if $.contains(@_sortingItem[0], item.el[0])
       distance = @_getDistanceFromItem item, mousePosition
-      if _.isNil(minDistance) || minDistance > distance
+      if (minDistance == distance == 0 && nearestItem.el[0].contains(item.el[0])) || _.isNil(minDistance) || minDistance > distance
         minDistance = distance
         nearestItem = item
 
