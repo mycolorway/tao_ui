@@ -7,7 +7,7 @@ export default class SlideBoxElementBase extends Component
 
   @attribute 'active', type: 'boolean', observe: true
 
-  @attribute 'autoHide', 'autoDestroy', 'modal', 'withoutPadding', type: 'boolean'
+  @attribute 'autoHide', 'autoDestroy', 'autoActivate', 'modal', 'withoutPadding', type: 'boolean'
 
   @attribute 'triggerSelector', 'triggerTraversal'
 
@@ -24,7 +24,12 @@ export default class SlideBoxElementBase extends Component
 
     @_initSize()
     @_bind()
-    @_activeChanged() if @active
+
+    if @autoActivate
+      @reflow()
+      @active = true
+    else if @active
+      @_activeChanged()
 
   _disconnected: ->
     @triggerEl?.off ".tao-slide-box-#{@taoId}"
