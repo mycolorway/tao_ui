@@ -100,7 +100,7 @@ class DialogElement extends Component
     @
 
   checkScrollable: ->
-    @scrollable = !(@content[0].scrollHeight == @content[0].clientHeight)
+    @scrollable = (@content[0].scrollHeight - @content[0].clientHeight) > 5
 
   remove: ->
     @namespacedTrigger 'beforeRemove'
